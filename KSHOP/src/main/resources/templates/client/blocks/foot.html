@@ -1,0 +1,40 @@
+    <!-- Plugin JS File -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/simpleFetch.js"></script>
+    <script src="/js/sticky.js"></script>
+    <script src="/js/jquery.plugin.min.js"></script>
+    <script src="/js/imagesloaded.pkgd.min.js"></script>
+    <script src="/js/jquery.zoom.js"></script>
+    <script src="/js/jquery.countdown.min.js"></script>
+    <script src="/js/jquery.magnific-popup.min.js"></script>
+    <script src="/js/skrollr.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="/js/swiper-bundle.min.js"></script>
+
+    <!-- sweetalert2  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2"></script>
+
+    <script src="/js/login/script.js"></script>
+
+    <!-- Main JS -->
+    <script src="/js/main.min.js"></script>
+    <script src="/js/base.js"></script>
+    <script src="/js/cart/script.js"></script>
+
+    <script th:each="jsLink : ${content.jsList}" th:src="${jsLink}"></script>
+
+    <script src="https://www.paypal.com/sdk/js?client-id=AfsloeK0Y4-Os4TNDboU_D3O35HSCuyyhzbbVYKF0hmq43DSEWXFGWcrudv1Ns3cwv-QXDLVlZWHmTPa"></script>
+    <!-- <script src="/js/zalopay/zalopay.js"></script> -->
+</body>
+
+<style>
+    .swal2-container {
+        z-index: 2501!important;
+    }
+    .swal2-popup {
+        font-size: 1.6rem!important;
+    }
+</style>
+
+</html>

@@ -1,0 +1,249 @@
+<div class="page-body">
+    <div class="title-header">
+        <h5>[[${AdminDataRoot.info_receive_money == null ? "Thêm" : "Sửa"}]] phương thức nhận tiền của bạn</h5>
+    </div>
+    
+    <!-- New Product Add Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Thông tin thanh thoán</h5>
+                                    <p>
+                                        <em>[[${AdminDataRoot.info_receive_money != null ? '(đã thêm phương thức nhận tiền)' : '*(vui lòng thêm phương thức nhận tiền của bạn)'}]]</em>
+                                    </p>
+                                    <input type="hidden" id="info_receive_money" th:value="${AdminDataRoot.info_receive_money}"/>
+                                </div>
+
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label
+                                                class="col-sm-2 col-form-label form-label-title">Phương thức</label>
+                                            <div class="col-sm-10">
+                                                
+                                            <select onchange="setMethod()" class="js-example-basic-single w-100" id="method">
+                                                        
+                                                    <option value="CK">
+                                                        Chuyển khoản ngân hàng
+                                                    </option>
+                                                    <option value="PAYPAL">
+                                                        Paypal
+                                                    </option>
+                                                    <option value="MOMO">
+                                                        Ví điện tử Momo
+                                                    </option>
+                                                    <option value="VT_MONEY">
+                                                        Ví điện tử Viettel Money
+                                                    </option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="method-ck mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Chọn ngân hàng</label>
+                                            <div class="col-sm-12">
+                                                <div class="bank-group">
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-vtb.svg" alt=""> Vietinbank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-varb.svg" alt=""> Agribank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-vcb.svg" alt=""> Vietcombank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-bidv.svg" alt=""> BIDV
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-dab.svg" alt=""> Đông Á Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-scb.svg" alt=""> Sacombank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-acb.svg" alt=""> ACB
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-mb.svg" alt=""> MBBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-tcb.svg" alt=""> Techcombank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-vpb.svg" alt=""> VPBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-eib.svg" alt=""> Eximbank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-vib.svg" alt=""> VIB
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-hdb.svg" alt=""> HDBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-ojb.svg" alt=""> Oceanbank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-shb.svg" alt=""> SHB
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-msb.svg" alt=""> Maritime Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-seab.svg" alt=""> SeABank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-abb.svg" alt=""> ABBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-tpb.svg" alt=""> TPBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-sgcb.svg" alt=""> TMCP Sài Gòn
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-lpb.svg" alt=""> Liên Việt Post Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-sgb.svg" alt=""> SaigonBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-ocb.svg" alt=""> OCB
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-nab.svg" alt=""> Nam Á Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-vab.svg" alt=""> Việt Á Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-bvb.svg" alt=""> Bảo Việt Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-gpb.svg" alt=""> GPBank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-bab.svg" alt=""> Bắc Á Bank
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                    <a href="#" class="bank-item">
+                                                        <img src="/images/banks/bank-vccb.svg" alt=""> Ngân hàng Bản Việt
+                                                        <img src="/images/banks/check-mark.svg" alt="" class="checkmark">
+                                                    </a>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="method-number-info mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Số tài khoản</label>
+                                            <div class="col-sm-10">
+                                                <input class="form-control" type="text" placeholder="Số tài khoản.." id="nbi_method">
+                                            </div>
+                                        </div>
+                                        <div class="method-ck mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Họ và tên</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.first_name + ' ' + AdminDataRoot.last_name}" class="form-control" type="text" placeholder="Họ và tên.." id="fullname">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Số dư ngoài **</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.sodu_ngoai}" class="form-control" type="number" placeholder="Số dư ngoài.." id="sodu_ngoai">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <p class="form-label-title col-sm-8 mb-4">
+                                                *Lưu ý: Nhập đúng họ và tên trên thẻ nếu phương thức là chuyển khoản ngân hàng, để không xảy ra sai sót. Vì tiền sẽ được chuyển tự động định kì.
+                                            </p>
+                                            <p class="form-label-title col-sm-12 mb-4">
+                                                **: <em>Số dư ngoài</em> hay còn gọi là số dư khác. Nó sẽ là số dư còn lại của tài khoản khi đến đợt thanh toán hàng tháng.<br>
+                                                VD: Bạn đặt số dư ngoài là: 400k. Min thanh toán tiền của hệ thống là 500k. Khi bạn có số dư 900k thì đủ điều kiện nhận tiền của tháng đó. Sau khi nhận tiền, hệ thống sẽ giữ lại 400k trong tài khoản của bạn. Tức bạn chỉ nhận được 500k về STK của mình.
+                                            </p>
+                                        </div>  
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button-custom" onclick="applyMethod()">Áp dụng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- New Product Add End -->
+
+    <!-- footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer En -->
+</div>

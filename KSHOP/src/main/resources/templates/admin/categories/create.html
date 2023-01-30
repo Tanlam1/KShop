@@ -1,0 +1,104 @@
+<!-- Create Menu Table Start-->
+<div class="page-body">
+    <div class="title-header">
+        <h5>Create Menu</h5>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="tab-content" id="pills-tabContent">
+                                    <form class="theme-form theme-form-2 mega-form">
+                                        <div class="row">
+                                            <div class="d-inline-flex">
+                                                <div class="mb-3 row align-items-center p-6">
+                                                    <label class="col-sm-2 col-form-label form-label-title"
+                                                        style="width: 200px;">Level
+                                                        <span class="theme-color">*</span></label>
+                                                    <div class="col-sm-10">
+                                                        <select class="js-example-basic-single category-0-js"
+                                                            name="state" id="catelevel">
+                                                            <option value="0">0</option>
+                                                            <option value="1">1</option>
+                                                            <option value="2">2</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-3 row align-items-center p-6" >
+                                                    <label class="col-sm-2 col-form-label form-label-title"
+                                                        style="width: 200px;">Parent Categories
+                                                        <span class="theme-color">*</span></label>
+                                                    <div class="col-sm-10">
+                                                        <select class="js-example-basic-single category-0-1-js"
+                                                            name="state" id="parentID">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3 row align-items-center">
+                                                <input type="hidden" id="category_id" th:if="${content.objs.categories.id > 0}" th:value="${content.objs.categories.id}">
+                                                <label class="form-label-title col-lg-2 col-md-3 mb-0">Category
+                                                    code</label>
+                                                <div class="col-md-9 col-lg-10">
+                                                    <input class="form-control" type="text" id="category_code" th:value="${content.objs.categories.category_code}">
+                                                </div>
+                                            </div>
+                                            <div class="mb-3 row align-items-center">
+                                                <label class="form-label-title col-lg-2 col-md-3 mb-0">Category
+                                                    name</label>
+                                                <div class="col-md-9 col-lg-10">
+                                                    <input class="form-control" type="text" id="category_name" th:value="${content.objs.categories.category_name}">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3 row">
+                                                <label class="form-label-title col-sm-2 mb-0">Description</label>
+                                                <div class="col-sm-10">
+                                                    <!-- <input class="form-control" type="text" id="description" th:value="${content.objs.categories.description}"> -->
+                                                    <div id="editor">[(${content.objs.categories.description})]</div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3 row align-items-center">
+                                                <label class="form-label-title col-lg-2 col-md-3 mb-0">Image</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control form-choose" type="file" id="image"
+                                                        multiple th:value="${content.objs.categories.image}">
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-4 row align-items-center">
+                                                <label class="form-label-title col-lg-2 col-md-3 mb-0">Status</label>
+                                                <div class="col-md-9">
+                                                    <div class="form-check user-checkbox ps-0">
+                                                        <input class="checkbox_animated check-it" type="checkbox"
+                                                            value="" id="flexCheckDefault">
+                                                        <label class="form-label-title col-md-2 mb-0">Enable
+                                                            the Menu</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="card-footer text-center border-0 pt-0">
+                                                <button class="btn btn-primary me-3" th:if="${content.objs.categories.id < 0}" onclick="addCate()">Create</button>
+                                                <button class="btn btn-primary me-3" th:if="${content.objs.categories.id > 0}" onclick="editCate()">Edit</button>
+                                                <button class="btn btn-outline-primary" onclick="rest()">Rest</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Create Menu Table End-->

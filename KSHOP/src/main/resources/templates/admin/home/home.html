@@ -1,0 +1,139 @@
+<!-- index body start -->
+<div class="page-body">
+    <div class="title-header title-header-1">
+        <h5>Quản lý & thống kê</h5>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- chart caard section start -->
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="b-b-primary border-5 border-0 card o-hidden">
+                    <div class="custome-1-bg b-r-4 card-body">
+                        <div class="media align-items-center static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Tiền giao dịch(đ)</span>
+                                <span class="badge badge-light-primary grow">
+                                    [[${content.objs.tongTienGD}]]
+                                </span>
+                            </div>
+                            <div class="align-self-center text-center">
+                                <i data-feather="database"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="b-b-danger border-5 border-0 card o-hidden">
+                    <div class=" custome-2-bg  b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Đơn hàng</span>
+                                <span class="badge badge-light-danger grow">
+                                    [[${content.objs.tongDonHang}]]
+                                </span>
+                            </div>
+                            <div class="align-self-center text-center">
+                                <i data-feather="shopping-bag"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="b-b-secondary border-5 border-0  card o-hidden">
+                    <div class=" custome-3-bg b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Đánh giá</span>
+                                <span class="badge badge-light-secondary grow ">
+                                    [[${content.objs.danhgia}]]        
+                                </span>
+                            </div>
+
+                            <div class="align-self-center text-center">
+                                <i data-feather="message-circle"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-xxl-3 col-lg-6">
+                <div class="b-b-success border-5 border-0 card o-hidden">
+                    <div class=" custome-4-bg b-r-4 card-body">
+                        <div class="media static-top-widget">
+                            <div class="media-body p-0">
+                                <span class="m-0">Cừa hàng</span>
+                                <span class="badge badge-light-success grow">
+                                    [[${content.objs.tongStore}]] 
+                                </span>
+                            </div>
+
+                            <div class="align-self-center text-center">
+                                <i data-feather="user-plus"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- chart caard section End -->
+            <style>
+                .card-body {
+                    min-height: 114px;
+                }
+                .badge {
+                    display: block;
+                    margin: 12px 0 0 0; 
+                    font-size: 16px;
+                }
+            </style>
+
+            <!-- Earning chart star-->
+            <div class="col-xl-4">
+                <div class="card o-hidden card-hover">
+                    <div class="card-header border-0 pb-1">
+                        <div class="card-header-title">
+                            <h4>Thu nhập</h4>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="bar-chart-earning"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earning chart end-->
+
+            <!-- Earning chart star-->
+            <div class="col-xl-8">
+                <div class="card o-hidden ">
+                    <div class="card-header border-0 pb-1">
+                        <div class="card-header-title">
+                            <h4>Doanh thu các shop</h4>
+                        </div>
+                    </div>
+                    <div class="card-body p-0">
+                        <div id="report-chart"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Earning chart  end-->
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+    <!-- footer start-->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer End-->
+</div>
+<!-- index body end -->

@@ -1,0 +1,111 @@
+<!-- tracking section start -->
+<div class="page-body">
+    
+    <div class="title-header title-header-block package-card order-js">
+        
+    </div>
+    <input type="hidden" th:value="${content.objs.orderId}" id="orderId"/>
+
+    <!-- tracking table start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="bg-inner cart-section order-details-table">
+                            <div class="row g-4">
+                                <div class="col-xl-8">
+                                    <button onclick="createOrderGHN()" class="button-custom ghn-btn" style="display: none;">Tạo Đơn GHN</button>
+                                    <div class="table-responsive table-details">
+                                        <table class="table cart-table table-borderless">
+                                            <thead>
+                                                <tr>
+                                                    <th colspan="2">Các sản phẩm</th>
+                                                    <th class="text-end" colspan="2">
+                                                        <a onclick="changeTypeOrder()" href="javascript:void(0)"
+                                                            class="theme-color handle-type-order">Xác nhận còn hàng</a>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody class="orderdetail-js">
+                                                
+                                            </tbody>
+
+                                            <tfoot>
+                                                <tr class="table-order">
+                                                    <td colspan="3">
+                                                        <h5>Tạm tính :</h5>
+                                                    </td>
+                                                    <td>
+                                                        <h4 class="subtotal_order"></h4>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="table-order">
+                                                    <td colspan="3">
+                                                        <h5>Phí giao hàng :</h5>
+                                                    </td>
+                                                    <td>
+                                                        <h4 class="shipping_price"></h4>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="table-order">
+                                                    <td colspan="3">
+                                                        <h5>Khuyến mãi :</h5>
+                                                    </td>
+                                                    <td>
+                                                        <h4 class="discount_price_order"></h4>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="table-order">
+                                                    <td colspan="3">
+                                                        <h5>Thuế (đã tính vào sản phẩm):</h5>
+                                                    </td>
+                                                    <td>
+                                                        <h4>VAT 10%</h4>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="table-order">
+                                                    <td colspan="3">
+                                                        <h4 class="theme-color fw-bold">Tổng đơn hàng :</h4>
+                                                    </td>
+                                                    <td>
+                                                        <h4 class="theme-color fw-bold total_price_order"></h4>
+                                                    </td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <div class="col-xl-4">
+                                    <div class="order-success orderall-js">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- section end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- tracking table end -->
+
+    <div class="container-fluid">
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- tracking section End -->

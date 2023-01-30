@@ -1,0 +1,354 @@
+<div class="page-body">
+    <div class="title-header">
+        <h5>[[${content.objs.product.id < 0 ? "Thêm" : "Sửa"}]] sản phẩm</h5>
+    </div>
+
+    <!-- New Product Add Start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Thông tin sản phẩm</h5>
+                                </div>
+
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+                                        <input type="hidden" id="product_id" th:if="${content.objs.product.id > 0}" th:value="${content.objs.product.id}">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Tên sản phẩm</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.product_name}" onkeyup="ChangeToSlug()" class="form-control" type="text" placeholder="Tên sản phẩm" id="product_name">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Slug</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.product_code}" class="form-control" type="text" placeholder="Code sản phẩm" id="product_code">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label
+                                                class="col-sm-2 col-form-label form-label-title">Danh mục</label>
+                                            <div class="col-sm-10">
+                                                
+                                                <select class="js-example-basic-single w-100" id="categories">
+                                                    <option th:if="${content.objs.product.categories.id != null}" th:value="${content.objs.product.categories.id}" th:text="${content.objs.product.categories.category_name}" >
+                                                        
+                                                    </option>
+                                                    <option value="52">
+                                                        Thời trang
+                                                    </option>
+                                                    <option value="53">
+                                                        Nhà và vườn
+                                                    </option>
+                                                    <option value="54">
+                                                        Thiết bị điện tử
+                                                    </option>
+                                                    <option value="55">
+                                                        Đồ nội thất
+                                                    </option>
+                                                    <option value="56">
+                                                        Sức khoẻ và sắc đẹp
+                                                    </option>
+                                                    <option value="57">
+                                                        Ý tưởng quà tặng
+                                                    </option>
+                                                    <option value="58">
+                                                        Đồ chơi và games
+                                                    </option>
+                                                    <option value="59">
+                                                        Nấu nướng
+                                                    </option>
+                                                    <option value="60">
+                                                        Điện thoại thông minh
+                                                    </option>
+                                                    <option value="61">
+                                                        Cameras và hình ảnh
+                                                    </option>
+                                                    <option value="62">
+                                                        Phụ kiện
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label
+                                                class="col-sm-2 col-form-label form-label-title">Nhà cung cấp</label>
+                                            <div class="col-sm-10">
+                                                <select class="js-example-basic-single w-100" id="supplier">
+                                                    <option th:if="${content.objs.product.suppliers.id != null}" th:value="${content.objs.product.suppliers.id}" >
+                                                        [[${content.objs.product.suppliers.supplier_code}]] -
+                                                        [[${content.objs.product.suppliers.supplier_name}]]
+                                                    </option>
+                                                    <option value="18">SUP1123 - test</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Giá nhập</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.standard_cost}" class="form-control" type="number" placeholder="Giá nhập" id="standard_cost">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Giá niêm yết</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.list_price}" class="form-control" type="number" placeholder="Giá niêm yết" id="list_price">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Mô tả</h5>
+                                </div>
+
+                                <form class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Mô tả ngắn</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.short_description}" class="form-control" type="text" placeholder="Mô tả ngắn" id="short_description">
+                                            </div>
+                                        </div>
+                                        <div class="col-12">
+                                            <div class="row">
+                                                <label class="form-label-title col-sm-2 mb-0">Mô tả sản phẩm</label>
+                                                <div class="col-sm-10">
+                                                    <div id="editor">[(${content.objs.product.description})]</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Hình ảnh </h5>
+                                </div>
+
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <input th:value="${content.objs.product.image}" id="image" type="hidden">
+                                            <div class="col-sm-6">
+                                                <label class="col-form-label form-label-title">Banner sản phẩm</label>
+                                                <input type="file"  class="form-control" onchange="onChangeFile(event, '#image', '.product-img-review')" onclick="this.value=null;">
+                                            </div>
+                                            <div class="col-sm-6" style="text-align: center;">
+                                                <div class="review__imgs-product">
+                                                    <img th:src="${content.objs.product.image == null ? 'https://www.proclinic-products.com/build/static/default-product.30484205.png' : content.objs.product.image}" alt="IMG" class="imgs__product-item  size-xxl product-img-review">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row align-items-center">
+                                            <input th:value="${content.objs.product.image}" id="image" type="hidden">
+                                            <div class="col-sm-6">
+                                                <label class="col-form-label form-label-title">Hình ảnh khác</label>
+                                                <input type="file"  class="form-control"  onchange="onChangeFile(event, '', '.wrap__imgs-rv')" onclick="this.value=null;" multiple>
+                                            </div>
+                                            <div class="col-sm-6 mt-4 mb-4">
+                                                <div class="row wrap__imgs-rv">
+                                                    <div class="col-sm-4 mt-4">
+                                                        <div class="review__imgs-product">
+                                                            <img src="https://www.proclinic-products.com/build/static/default-product.30484205.png" alt="IMG" class="imgs__product-item">            
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4 mt-4">
+                                                        <div class="review__imgs-product">
+                                                            <img src="https://www.proclinic-products.com/build/static/default-product.30484205.png" alt="IMG" class="imgs__product-item">            
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4 mt-4">
+                                                        <div class="review__imgs-product">
+                                                            <img src="https://www.proclinic-products.com/build/static/default-product.30484205.png" alt="IMG" class="imgs__product-item">            
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Tùy chọn sản phẩm</h5>
+                                </div>
+
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row mb-4">
+                                        <div class="col-sm-12">
+                                            <button class="add_type_sp button-custom green-dark">+ Thêm mới</button>
+                                            <div class="product__types">
+                                                PRODUCT_TYPES
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row wrap__products-type">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Số lượng</h5>
+                                </div>
+
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Số lượng </label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.quantity}" class="form-control" type="number" placeholder="Số lượng hàng còn lại" id="quantity">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Số lượng trên mỗi đơn vị</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${content.objs.product.quantity_per_unit}" class="form-control" type="text" placeholder="Số lượng trên mỗi đơn vị" id="quantity_per_unit">
+                                            </div>
+                                        </div>
+
+                                        <div th:if="${content.objs.product.id > 0}" class="row align-items-center">
+                                            <label
+                                                class="col-sm-2 col-form-label form-label-title">Ngưng bán?</label>
+                                            <div class="col-sm-10">
+                                                <input th:checked="${content.objs.product.discontinued}" type="checkbox"  id="discontinued">
+                                            </div>
+                                        </div>
+
+                                        <div th:if="${content.objs.product.id > 0}" class="row align-items-center">
+                                            <label
+                                                class="col-sm-2 col-form-label form-label-title">SP Nổi bật</label>
+                                            <div class="col-sm-10">
+                                                <input th:checked="${content.objs.product.is_featured}" type="checkbox"  id="is_featured">
+                                            </div>
+                                        </div>
+
+                                        <div th:if="${content.objs.product.id > 0}" class="row align-items-center">
+                                            <label
+                                                class="col-sm-2 col-form-label form-label-title">Hàng mới về</label>
+                                            <div class="col-sm-10">
+                                                <input th:checked="${content.objs.product.is_new}" type="checkbox"  id="is_new">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2">
+                                    <h5>Tổng quan</h5>
+                                </div>
+
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-4 mb-0">Chiều cao - Đơn vị cm (height) </label>
+                                            <div class="col-sm-12">
+                                                <input th:value="${content.objs.product.height}" class="form-control" type="number" placeholder="Chiều cao của sản phẩm" id="height">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-4 mb-0">Chiều rộng - Đơn vị cm (width) </label>
+                                            <div class="col-sm-12">
+                                                <input th:value="${content.objs.product.width}" class="form-control" type="number" placeholder="Chiều rộng của sản phẩm" id="width">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-4 mb-0">Chiều dài - Đơn vị cm (length) </label>
+                                            <div class="col-sm-12">
+                                                <input th:value="${content.objs.product.length}" class="form-control" type="number" placeholder="Chiều dài của sản phẩm" id="length">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-4 mb-0">Khối lượng - Đơn vị Gram (weight) </label>
+                                            <div class="col-sm-12">
+                                                <input th:value="${content.objs.product.weight}" class="form-control" type="number" placeholder="Khối lượng(Gram) của sản phẩm" id="weight">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="button-custom" th:if="${content.objs.product.id < 0}" onclick="addProduct()">Đăng sản phẩm</button>
+                        <button class="button-custom" th:if="${content.objs.product.id > 0}" onclick="editProduct()">Sửa sản phẩm</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- New Product Add End -->
+
+    <!-- footer Start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer En -->
+</div>
+
+<script>
+    const ChangeToSlug = () => {
+        let namef, slug;
+    
+        //Lấy text từ thẻ input namef 
+        namef = _$('#product_name').value;
+    
+        //Đổi chữ hoa thành chữ thường
+        slug = namef.toLowerCase();
+    
+        //Đổi ký tự có dấu thành không dấu
+        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+        slug = slug.replace(/đ/gi, 'd');
+        //Xóa các ký tự đặt biệt
+        slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+        //Đổi khoảng trắng thành ký tự gạch ngang
+        slug = slug.replace(/ /gi, "-");
+        //Đổi nhiều ký tự gạch ngang liên tiếp thành 1 ký tự gạch ngang
+        //Phòng trường hợp người nhập vào quá nhiều ký tự trắng
+        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-/gi, '-');
+        //Xóa các ký tự gạch ngang ở đầu và cuối
+        slug = '@' + slug + '@';
+        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+        // Thay ,- thành , 
+        slug = slug.replace(/\,\-/gi, ", "); 
+        //In kết quả ra slug
+        _$('#product_code').value = slug;
+    }
+</script>

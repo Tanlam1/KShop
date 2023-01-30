@@ -1,0 +1,111 @@
+<!-- Start of Main -->
+<main class="main">
+	<!-- Start of Breadcrumb -->
+	<nav class="breadcrumb-nav">
+		<div class="container">
+			<ul class="breadcrumb mb-6">
+				<li><a href="./">Home</a></li>
+				<li><a href="#">Vendor</a></li>
+				<li><a href="#">Dokan</a></li>
+				<li>Store Grid</li>
+			</ul>
+		</div>
+	</nav>
+	<!-- End of Breadcrumb -->
+
+	<!-- Start of Pgae Contetn -->
+	<div class="page-content mb-8">
+		<div class="container">
+			<!-- Start of Vendor Toolbox -->
+			<div class="toolbox vendor-toolbox pb-0">
+				<div class="toolbox-left mb-4 mb-md-0">
+					<a href="#"
+						class="btn btn-primary btn-outline btn-rounded btn-icon-left vendor-search-toggle "><i
+						class="w-icon-category"></i>Filter</a> <label class="d-block">Total
+						Store Showing 6</label>
+				</div>
+				<div class="toolbox-right">
+					<div class="toolbox-item toolbox-sort select-box mb-0">
+						<label class="font-weight-normal">Sort by:</label> <select
+							name="orderby" class="form-control">
+							<option value="default" selected="selected">Default</option>
+							<option value="recent">Most Recent</option>
+							<option value="popular">Most Popular</option>
+						</select>
+					</div>
+					<div class="toolbox-item toolbox-layout mb-0 d-flex">
+						<a href="" id="grid"
+							onclick="changeClassGrid()"
+							class="icon-mode-grid btn-layout active"> 
+							<i class="w-icon-grid"></i>
+						</a> 
+						<a href="" id="list"
+							onclick="changeClassLsit()"
+							class="icon-mode-list btn-layout"> 
+							<i class="w-icon-list"></i>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!-- End of Vendor Toolbox -->
+			<div class="vendor-search-wrapper">
+				<form class="vendor-search-form">
+					<input type="email" class="form-control mr-4 bg-white"
+						name="vendor" id="vendor" placeholder="Search Vendors">
+					<button class="btn btn-primary btn-rounded" type="submit">Apply</button>
+				</form>
+				<!-- End of Vendor Search Form -->
+			</div>
+
+			<div id="loadStoreGrid" class="row cols-lg-3 cols-md-2 cols-sm-2 cols-1 mt-4 store-grid-js">
+				
+			</div>
+
+			<div id="loadStoreList" class="row store-list-js hidden">
+				
+			</div>
+
+			<div class="toolbox toolbox-pagination justify-content-between">
+				<p class="showing-info mb-2 mb-sm-0 length">
+					Showing<span>1-6 of 60</span>Products
+				</p>
+				<ul class="pagination">
+
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- End of Page Content -->
+</main>
+<!-- End of Main -->
+<style>
+.hidden {
+	display: none !important;
+}
+</style>
+<script>
+function changeClassGrid() {
+
+	var element1 = document.getElementById('loadStoreGrid');
+	var element2 = document.getElementById('loadStoreList');
+	var element3 = document.getElementById('grid');
+	var element4 = document.getElementById('list');
+
+	element1.className="row cols-lg-3 cols-md-2 cols-sm-2 cols-1 mt-4 store-grid-js"
+	element2.className="row store-list-js hidden"
+	element3.className="icon-mode-grid btn-layout active"
+	element4.className="icon-mode-list btn-layout"
+}
+function changeClassLsit() {
+
+	var element1 = document.getElementById('loadStoreGrid');
+	var element2 = document.getElementById('loadStoreList');
+	var element3 = document.getElementById('grid');
+	var element4 = document.getElementById('list');
+
+	element1.className="row cols-lg-3 cols-md-2 cols-sm-2 cols-1 mt-4 store-grid-js hidden"
+	element2.className="row store-list-js"
+	element3.className="icon-mode-grid btn-layout"
+	element4.className="icon-mode-list btn-layout active"
+}
+</script>

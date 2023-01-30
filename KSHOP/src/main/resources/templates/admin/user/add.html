@@ -1,0 +1,361 @@
+<!-- Page Sidebar Start -->
+<div class="page-body">
+    <div class="title-header">
+        <h5>[[${content.objs.user.id < 0 ? "Thêm" : "Chỉnh Sửa"}]] User</h5>
+    </div>
+    <!-- New User start -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link active" id="pills-home-tab"
+                                            data-bs-toggle="pill" data-bs-target="#pills-home"
+                                            type="button">Thông tin tài khoản</button>
+                                    </li>
+                                    <li th:if="${content.objs.user.id > 0}" class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pills-profile-tab"
+                                            data-bs-toggle="pill" data-bs-target="#pills-profile"
+                                            type="button">Phân quyền tài khoản</button>
+                                    </li>
+                                </ul>
+
+                                <div class="tab-content" id="pills-tabContent">
+                                    <div class="tab-pane fade show active" id="pills-home" role="tabpanel">
+                                        <div class="theme-form theme-form-2 mega-form">
+                                            <div class="card-header-1">
+                                                <h5>Chi tiết thông tin</h5>
+                                            </div>
+
+                                            <input type="hidden" id="user_id" th:if="${content.objs.user.id > 0}" th:value="${content.objs.user.id}">
+                                            <div class="row">
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="form-label-title col-lg-2 col-md-3 mb-0">Tên tài khoản</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input class="form-control" type="text" id="username" th:value="${content.objs.user.username}" th:disabled="${content.objs.user.id > 0}">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="form-label-title col-lg-2 col-md-3 mb-0">Mật khẩu</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input th:placeholder="${content.objs.user.id < 0 ? '' : 'Bỏ qua nếu không cần cập nhật..'}" class="form-control" type="password" id="password">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="form-label-title col-lg-2 col-md-3 mb-0">Nhập lại mật khẩu</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input th:placeholder="${content.objs.user.id < 0 ? '' : 'Bỏ qua nếu không cần cập nhật..'}" class="form-control" type="password" id="re_password" >
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="form-label-title col-lg-2 col-md-3 mb-0">First
+                                                        Name</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input class="form-control" type="text" id="first_name" th:value="${content.objs.user.first_name}">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="form-label-title col-lg-2 col-md-3 mb-0">Last
+                                                        Name</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input class="form-control" type="text" id="last_name" th:value="${content.objs.user.last_name}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="col-lg-2 col-md-3 col-form-label form-label-title">Email
+                                                        Address</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input th:disabled="${content.objs.user.id > 0}" class="form-control" type="email" id="email" th:value="${content.objs.user.email}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="col-lg-2 col-md-3 col-form-label form-label-title">SĐT</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input th:disabled="${content.objs.user.id > 0}" class="form-control" type="text" id="phone" th:value="${content.objs.user.phone}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="col-lg-2 col-md-3 col-form-label form-label-title">Mã CMND / CCCD</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input class="form-control" type="text" id="code" th:value="${content.objs.user.code}">
+                                                    </div>
+                                                </div>
+
+                                                <div class="mb-4 row align-items-center">
+                                                    <label
+                                                        class="col-lg-2 col-md-3 col-form-label form-label-title">Bank info</label>
+                                                    <div class="col-md-9 col-lg-10">
+                                                        <input th:disabled="${content.objs.user.id > 0}" class="form-control" type="text" id="info_receive_money" th:value="${content.objs.user.info_receive_money}">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-2 mb-0">Đường, số nhà</label>
+                                                    <div class="col-sm-10">
+                                                        <input th:value="${content.objs.user.address1}" id="address1" class="form-control" type="text" placeholder="Nhập địa chỉ..">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-2 mb-0">Tỉnh / Thành Phố</label>
+                                                    <div class="col-sm-10">
+                                                        <select th:data-current="${content.objs.user.city == '' ? 'Chọn Tỉnh Thành' : content.objs.user.city}" onchange="renderState('#city', '#state')" id="city" class="form-control form-control-md">
+                                                            <option value="-1">[[${content.objs.user.city}]]</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-2 mb-0">Quận / Huyện</label>
+                                                    <div class="col-sm-10">
+                                                        <select onchange="renderWard('#state', '#ward')" id="state" class="form-control form-control-md">
+                                                            <option value="-1">[[${content.objs.user.state}]]</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-4 row align-items-center">
+                                                    <label class="form-label-title col-sm-2 mb-0">Phường / Xã</label>
+                                                    <div class="col-sm-10">
+                                                        <select id="ward" class="form-control form-control-md">
+                                                            <option value="-1">[[${content.objs.user.ward}]]</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <button class="button-custom" th:if="${content.objs.user.id < 0}" onclick="addUser()">Thêm mới</button>
+                                                <button class="button-custom" th:if="${content.objs.user.id > 0}" onclick="editUser()">Lưu thay đổi</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div th:if="${content.objs.user.id > 0}" class="tab-pane fade" id="pills-profile" role="tabpanel">
+                                        <div class="card-header-1">
+                                            <h5>Loại tài khoản</h5>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Admin</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[0]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[0]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Thủ kho</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[1]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[1]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Kế toán</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[2]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[2]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Khách hàng (SHOPER, STORE)</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[3]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[3]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Nhân viên tư vấn khách hàng</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[4]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[4]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Nhân viên chăm sóc khách hàng</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[5]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[5]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Duyệt đơn & tiền (Admin Money)</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[6]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[6]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Trợ lý quản lý</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[7]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[7]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Nhân viên chốt đơn</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[8]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[8]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="col-md-3 mb-0">Quyền đăng sản phẩm</label>
+                                            <div class="col-md-9">
+                                                <form class="radio-section">
+                                                    <label>
+                                                        <input th:checked="${content.objs.listRoles[9]}" type="radio" name="opinion">
+                                                        <i></i>
+                                                        <span>Cho phép</span>
+                                                    </label>
+
+                                                    <label>
+                                                        <input type="radio" name="opinion" th:checked="${!content.objs.listRoles[9]}" />
+                                                        <i></i>
+                                                        <span>Từ chối</span>
+                                                    </label>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <button class="button-custom" onclick="handleRoles()">Lưu thay đổi</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- New User End -->
+
+    <!-- footer start -->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- footer end -->
+</div>
+<!-- Page Sidebar End -->

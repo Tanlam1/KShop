@@ -1,0 +1,170 @@
+<!-- Invoice table Start -->
+<div class="page-body">
+    <div class="title-header">
+        <h5>Chuyển tiền cho shop</h5>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="mb-4 row align-items-center">
+                            <label class="col-sm-2 col-form-label form-label-title">
+                                Thanh toán tháng
+                            </label>
+                            <div class="col-sm-10">
+                                <p class="head-content--pay">
+                                    CONTENT_PAY
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row align-items-center">
+                            <label class="col-sm-2 col-form-label form-label-title">
+                                Tìm kiếm
+                            </label>
+                            <div class="col-sm-10">
+                                <input oninput="filter()" class="form-control js-example-basic-single w-100" id="filter-search" placeholder="Nhập từ khóa cần tìm..">
+                            </div>
+                        </div>
+                        <div class="mb-4 row align-items-center">
+                            <label class="col-sm-2 col-form-label form-label-title">
+                                Lọc theo: Trạng thái
+                            </label>
+                            <div class="col-sm-10">
+                                <select onchange="filter()" class="form-control js-example-basic-single w-100" id="filter-xn">
+                                    <option value="0">
+                                        Tất cả
+                                    </option>
+                                    <option value="1">
+                                        Đủ điều kiện
+                                    </option>
+                                    <option value="2">
+                                        Chưa đủ điều kiện
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 row align-items-center">
+                            <div class="col-sm-12">
+                                <p style=" font-size: 16px; color: #e22454; font-weight: bold; ">
+                                    Lưu ý: Shop có số dư từ ngưỡng thanh toán trở lên sẽ được xác nhận là "Đủ điều kiện" của đợt và được thanh toán vào đợt tiếp theo của tháng. Mỗi tháng có 2 đợt thanh toán, ngày 01 và ngày 16.<br>
+                                    + VD: Shop "Đủ điều kiện" thanh toán vào ngày 27 tháng 04, số dư sẽ chuyển về dạng "Đang giữ". Đến ngày 16 tháng 05 shop sẽ nhận được tiền.<br>
+                                    + VD: Shop "Đủ điều kiện" thanh toán vào ngày 02 tháng 04, số dư sẽ chuyển về dạng "Đang giữ". Đến ngày 01 tháng 05 shop sẽ nhận được tiền.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="table-responsive table-desi">
+                            <table class="user-table vendor-table table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th style=" width: 20%;text-align: center!important; ">Shop</th>
+                                        <th>Số dư</th>
+                                        <th>Status</th>
+                                        <th>Tiền giữ lại</th>
+                                        <th>Ngày đăng ký</th>
+                                        <th>#</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="vendor-js">
+                                    
+                                </tbody>
+                            </table>
+                            <div class="seller__info paynext__info save-details-box">
+                                <div class="save-details">
+                                    <div class="save-name">
+                                        <h5><b class="box-green shopName">SHOP_NAME</b></h5>
+                                    </div>
+    
+                                    <div class="save-position">
+                                        <h6 class="shopCode">SHOP_CODE</h6>
+                                    </div>
+                                    <div class="wrap-box-1">
+    
+                                        <div class="mt-5 mb-3">
+                                            <p><b>Ngày thanh toán</b>: <span class="infoNextPay">NEXT_PAY</span></p>
+                                        </div>
+    
+                                        <div class="mb-3 mt-3">
+                                            <p><b>Phương thức thanh toán</b>: <span class="paymentType">PAYMENT_TYPE</span></p>
+                                        </div>
+    
+                                        <div class="mb-3 mt-3">
+                                            <p><b>Họ và tên</b>: <span class="paymentName">PAYMENT_NAME</span></p>
+                                        </div>
+    
+                                        <div class="mt-3 mb-3">
+                                            <p ><b>Số tài khoản</b>: <span class="paymentNumber">PAYMENT_NUMBER</span></p>
+                                        </div>
+    
+                                        <div class="mt-3 mb-4">
+                                            <p><b>Số dư</b>: <span class="sodu">SODU</span></p>
+                                        </div>
+    
+                                        <div class="mt-3 mb-4">
+                                            <p><b>Số dư ngoài</b>: <span class="soduNgoai">SODU_NGOAI</span></p>
+                                        </div>
+    
+                                        <div class="mt-3 mb-4">
+                                            <p><b>Số dư đang bị giữ</b>: <span class="soduHold">SODU_HOLD</span></p>
+                                        </div>
+    
+                                        <div class="mt-3 mb-4">
+                                            <p><b>Tổng thanh toán</b>: <span class="totalPay box-brand ok">TOTAL_PAY</span></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="wrap-box-2 mt-5">
+                                        <b>Hình ảnh đính kèm:</b>
+                                        <input disabled id="banking_image" type="hidden">
+                                        <input type="file" class="form-control" id="banking_image_file" onchange="onChangeFile(event, '#banking_image', '.banking_image--review')" onclick="this.value=null;">
+                                        <div style="text-align: center;" class="mt-3 mb-4">
+                                            <img class="banking_image--review" src="https://www.madeireiraestrela.com.br/images/joomlart/demo/default.jpg" alt="Image Banking">
+                                        </div>
+                                        <p class="note">
+                                            NOTE_BANKING
+                                        </p>
+                                    </div>
+
+                                    <div class="button action-seller">
+                                        <p class="text-rm-fail">
+                                            Chưa đủ điều kiện nhận tiền
+                                        </p>
+                                        <a style="color: #fff;" href="javascript:void(0)" class="btn btn-sm button-custom btn-primary submitBtn" onclick="accept()">Tiếp tục</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination Box Start -->
+                    <div class=" pagination-box">
+                        <nav class="ms-auto me-auto " aria-label="...">
+                            <ul class="pagination pagination-primary">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Pagination Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+    <!-- footer start-->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- Invoice table End -->

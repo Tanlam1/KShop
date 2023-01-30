@@ -1,0 +1,151 @@
+<h1 class="d-none">KShop - Mua hàng online giá tốt, hàng chuẩn, ship nhanh</h1>
+<!-- Start of Header -->
+<header class="header header-border">
+    <div class="header-top">
+        <div class="container">
+            <div class="header-left">
+                <p class="welcome-msg">Welcome to KShop message or remove it!</p>
+            </div>
+            <div class="header-right">
+                <div class="dropdown">
+                    <a href="#currency">USD</a>
+                    <div class="dropdown-box">
+                        <a href="#USD">USD</a>
+                        <a href="#EUR">EUR</a>
+                    </div>
+                </div>
+                <!-- End of DropDown Menu -->
+
+                <div class="dropdown">
+                    <a href="#language"><img src="/images/eng.png" alt="ENG Flag" width="14" height="8" class="dropdown-image"> ENG</a>
+                    <div class="dropdown-box">
+                        <a href="#ENG">
+                            <img src="/images/eng.png" alt="ENG Flag" width="14" height="8" class="dropdown-image">
+                            ENG
+                        </a>
+                        <a href="#FRA">
+                            <img src="/images/fra.png" alt="FRA Flag" width="14" height="8" class="dropdown-image">
+                            FRA
+                        </a>
+                    </div>
+                </div>
+                <!-- End of Dropdown Menu -->
+                <span class="divider d-lg-show"></span>
+                <a href="/contact-us" class="d-lg-show">Contact Us</a>
+                <a th:if="${UserDataRoot != null}" href="/profile" class="d-lg-show">My Account</a>
+                <a th:if="${UserDataRoot == null}" href="/login-ajax.html" class="d-lg-show login sign-in"><i class="w-icon-account"></i>Đăng nhập</a>
+                <span th:if="${UserDataRoot == null}" class="delimiter d-lg-show">/</span>
+                <a th:if="${UserDataRoot == null}" href="/login-ajax.html" class="ml-0 d-lg-show login register">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+    <!-- End of Header Top -->
+
+    <div class="header-middle">
+        <div class="container">
+            <div class="header-left mr-md-4">
+                <a href="#" class="mobile-menu-toggle  w-icon-hamburger" aria-label="menu-toggle">
+                </a>
+                <a href="/" class="logo ml-lg-0">
+                    <img src="/images/kshop_logo.png" alt="logo" width="144" height="45">
+                </a>
+                <form method="get" action="/list-product" class="header-search hs-expanded hs-round d-none d-md-flex input-wrapper">
+                    <div class="select-box">
+                        <select id="category" name="" class="category-level-0">
+                            
+                        </select>
+                    </div>
+                    <input type="text" class="form-control" name="keyWords" id="search-product-js" placeholder="Tìm sản phẩm, danh mục hay thương hiệu mong muốn ..." required>
+                    <button class="btn btn-search" type="submit"><i class="w-icon-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="header-right ml-4">
+                <div class="header-call d-xs-show d-lg-flex align-items-center">
+                    <a href="tel:#" class="w-icon-call"></a>
+                    <div class="call-info d-lg-show">
+                        <h4 class="chat font-weight-normal font-size-md text-normal ls-normal text-light mb-0">
+                            <a href="mailto:#" class="text-capitalize">Live Chat</a> or :</h4>
+                        <a href="tel:#" class="phone-number font-weight-bolder ls-50">0123-456-789</a>
+                    </div>
+                </div>
+                <div class="dropdown cart-dropdown cart-offcanvas mr-0 mr-lg-2">
+                    <div class="cart-overlay"></div>
+                    <a href="#" class="cart-toggle label-down link">
+                        <i class="w-icon-cart">
+                            <span class="cart-count">0</span>
+                        </i>
+                        <span class="cart-label">Giỏ hàng</span>
+                    </a>
+                    <div class="dropdown-box" style=" display: flex; flex-direction: column; height: 100%; ">
+                        <div class="cart-header">
+                            <span>GIỎ HÀNG</span>
+                            <a href="#" class="btn-close">Đóng<i class="w-icon-long-arrow-right"></i></a>
+                        </div>
+
+                        <div class="products" style="height: 450px; overflow: auto; max-height: 450px;padding: 0 16px 0 0px; ">
+                            <span style=" display: block; text-align: center; margin: 20px; font-size: 12px; ">Giỏ hàng trống</span>
+                        </div>
+                        <style>
+                            .products::-webkit-scrollbar {
+                                display: none;
+                            }
+                        </style>
+
+                        <div class="cart-total" style="margin-top: auto;"></div>
+
+                        <div class="cart-action">
+                            <a href="/" style="width: 100%;" class="btn btn-dark btn-outline btn-rounded">Shoping ngay!!</a>
+                        </div>
+                    </div>
+                    <!-- End of Dropdown Box -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Header Middle -->
+
+    <div class="header-bottom sticky-content fix-top sticky-header has-dropdown">
+        <div class="container">
+            <div class="inner-wrap">
+                <div class="header-left">
+                    <div class="dropdown category-dropdown has-border" data-visible="true">
+                        <a href="#" class="category-toggle text-dark" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" data-display="static" title="Tất Cả Danh Mục">
+                            <i class="w-icon-category"></i>
+                            <span>Tất Cả Danh Mục</span>
+                        </a>
+
+                        <div class="dropdown-box">
+                            <ul class="menu vertical-menu category-menu category-level-0-1">
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <nav class="main-nav">
+                        <ul class="menu active-underline">
+                            <li class="active">
+                                <a href="/">Trang chủ</a>
+                            </li>
+                            <li>
+                                <a href="/list-product">Sản phẩm</a>
+
+                            </li>
+                            <li>
+                                <a href="#">Cửa hàng</a>
+                            </li>
+                            <li>
+                                <a href="#">Contact Us</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header-right">
+                    <a href="#" class="d-xl-show"><i class="w-icon-map-marker mr-1"></i>Theo dõi đơn hàng</a>
+                    <a href="#"><i class="w-icon-sale"></i>Ưu đãi ngày</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<input th:if="${UserDataRoot}" type="hidden" id="idCustomer" th:value="${UserDataRoot.id}">
+<!-- End of Header -->

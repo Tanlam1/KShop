@@ -1,0 +1,98 @@
+<!-- Start of Main -->
+<main class="main cart">
+    <!-- Start of Breadcrumb -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ul class="breadcrumb shop-breadcrumb bb-no">
+                <li class="active"><a href="/cart">Giỏ hàng</a></li>
+                <li ><a href="/checkout">Thanh toán</a></li>
+                <li ><a href="/checkout">Hoàn tất</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End of Breadcrumb -->
+    <!-- Start of PageContent -->
+    <div class="page-content">
+        <div class="container">
+            <div class="row gutter-lg mb-10">
+                <div class="col-lg-8 pr-lg-4 mb-6">
+                    <table class="shop-table cart-table">
+                        <thead>
+                            <tr>
+                                <th class="product-name"><span>Sản phẩm</span></th>
+                                <th></th>
+                                <th class="product-price"><span>Đơn giá</span></th>
+                                <th class="product-quantity"><span>Số lượng</span></th>
+                                <th class="product-subtotal"><span>Tạm tính</span></th>
+                                <th>
+                                    #
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="cart-list">
+                            
+                        </tbody>
+                    </table>
+
+                    <div class="cart-action mb-6">
+                        <a href="/" class="btn btn-dark btn-rounded btn-icon-left btn-shopping mr-auto"><i class="w-icon-long-arrow-left"></i>Quay về shop</a>
+                        <button type="submit" class="btn btn-rounded btn-default btn-clear" onclick="removeAllCart()">Xóa sản phẩm đã chọn</button> 
+                        <button data-type="1" type="submit" class="checkAllBtn btn btn-primary btn-outline btn-rounded" onclick="checkAllCart()">Chọn tất cả</button>
+                    </div>
+
+                    <div class="coupon">
+                        <h5 class="title coupon-title font-weight-bold text-uppercase">Nhập Khuyến mãi khác</h5>
+                        <input value="" id="customer_voucher_id" type="text" class="form-control mb-4" placeholder="Nhập mã khuyến mãi" required>
+                        <button onclick="checkCustomerVouchers()" class="btn btn-dark btn-outline btn-rounded">Áp dụng</button>
+                    </div>
+                </div>
+                <div class="col-lg-4 sticky-sidebar-wrapper">
+                    <div class="sticky-sidebar">
+                        <div class="cart-summary mb-4">
+                            <h3 class="cart-title text-uppercase">Giỏ hàng của bạn</h3><br>
+                            <div class="cart-subtotal d-flex align-items-center justify-content-between">
+                                <label class="ls-25">Tạm tính</label>
+                                <span class="sub_total"></span>
+                            </div>
+                            
+                            <hr class="divider discount_hr" style="display: none;">
+                            <div class="cart-subtotal d-flex align-items-center justify-content-between">
+                                <label class="ls-25 discount"></label>
+                                <span class="discount_total"></span>
+                            </div>
+
+                            <div class="voucher_list">
+                                
+                            </div>
+
+                            <hr class="divider">
+
+                            <ul class="shipping-methods mb-2">
+                                <li>
+                                    <label class="shipping-title text-dark font-weight-bold">Chọn hình thức giao hàng</label>
+                                </li>
+                                <li>
+                                    <div class="custom-radio">
+                                        <input checked type="radio" id="free-shipping" class="custom-control-input" name="shipping">
+                                        <label for="free-shipping" class="custom-control-label color-dark">Giao hàng nhanh - tiết kiệm</label>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <hr class="divider mb-6">
+                            <div class="order-total d-flex justify-content-between align-items-center">
+                                <label>Tổng tiền</label>
+                                <span class="total_price ls-50"></span>
+                            </div>
+                            <a href="/checkout" class="btn btn-block btn-dark btn-icon-right btn-rounded  btn-checkout">
+                                Mua hàng
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of PageContent -->
+</main>
+<!-- End of Main -->

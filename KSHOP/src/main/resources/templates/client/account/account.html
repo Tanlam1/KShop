@@ -1,0 +1,665 @@
+<!-- Start of Main -->
+<main class="main">
+    <!-- Start of Breadcrumb -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ul class="breadcrumb">
+                <li><a href="./">Home</a></li>
+                <li>My account</li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End of Breadcrumb -->
+
+    <!-- Start of PageContent -->
+    <div class="page-content pt-2">
+        <div class="container">
+            <div class="tab tab-vertical row gutter-lg">
+                <ul class="nav nav-tabs mb-6" role="tablist">
+                    <li class="nav-item">
+                        <a href="#account-dashboard" class="nav-link active">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#account-orders" class="nav-link">
+                            <i class="w-icon-orders"></i> Đơn hàng
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#account-review-products" class="nav-link">
+                            <i class="w-icon-star"></i> Đánh giá sản phẩm
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#to-the-shop" class="nav-link">
+                            <i class="w-icon-store"></i> Trở thành người bán
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#account-addresses" class="nav-link">
+                            <i class="w-icon-map-marker"></i> Địa chỉ tài khoản
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#account-details" class="nav-link">
+                            <i class="w-icon-user"></i> Thông tin tài khoản
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#account-change" class="nav-link">
+                            <i class="w-icon-heart"></i> Thay đổi mật khẩu
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content mb-6">
+                    <div class="tab-pane active in" id="account-dashboard">
+                        <p class="greeting">
+                            Xin chào
+                            <span class="text-dark font-weight-bold">
+                                [[${UserDataRoot.first_name}]] 
+                                [[${UserDataRoot.last_name}]]
+                            </span>
+                            (không phải
+                            <span class="text-dark font-weight-bold">
+                                [[${UserDataRoot.first_name}]] 
+                                [[${UserDataRoot.last_name}]]
+                            </span>?
+                            <a href="/auth/logout" class="text-primary">Đăng xuất</a>)
+                        </p>
+
+                        <p class="mb-4">
+                            Từ trang tổng quan tài khoản, bạn có thể xem <a href="#account-orders"
+                                class="text-primary link-to-tab">các đơn đặt hàng gần đây của mình</a>,
+                            Quản lý <a href="#account-addresses" class="text-primary link-to-tab">vận chuyển của bạn và
+                                thanh toán địa chỉ</a>, và
+                            <a href="#account-details" class="text-primary link-to-tab">chỉnh sửa mật khẩu & chi tiết
+                                tài khoản của bạn.</a>
+                        </p>
+
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="#account-orders" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-orders">
+                                            <i class="w-icon-orders"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Danh sách đơn hàng</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="#to-the-shop" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-download">
+                                            <i class="w-icon-store"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Trở thành người bán</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="#account-addresses" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-address">
+                                            <i class="w-icon-map-marker"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Địa chỉ</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="#account-details" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-account">
+                                            <i class="w-icon-user"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Thông tin</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="#account-change" class="link-to-tab">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-wishlist">
+                                            <i class="w-icon-heart"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Mật khẩu</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-4 col-xs-6 mb-4">
+                                <a href="/auth/logout">
+                                    <div class="icon-box text-center">
+                                        <span class="icon-box-icon icon-logout">
+                                            <i class="w-icon-logout"></i>
+                                        </span>
+                                        <div class="icon-box-content">
+                                            <p class="text-uppercase mb-0">Đăng xuất</p>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane mb-4" id="account-orders">
+                        <div class="icon-box icon-box-side icon-box-light">
+                            <span class="icon-box-icon icon-orders">
+                                <i class="w-icon-orders"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title text-capitalize ls-normal mb-0">Orders</h4>
+                            </div>
+                        </div>
+
+                        <table class="shop-table account-orders-table mb-6">
+                            <thead>
+                                <tr style="text-align: left;">
+                                    <th class="order-id order-id-small">ID</th>
+                                    <th class="order-status">Trạng thái</th>
+                                    <th>Sản phẩm</th>
+                                    <th class="order-date">Ngày tạo</th>
+                                    <th class="order-actions">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody class="ordersList">
+                                
+                            </tbody>
+                        </table>
+
+                        <a href="/list-product" class="btn btn-dark btn-rounded btn-icon-right">Xem thêm sản phẩm<i class="w-icon-long-arrow-right"></i></a>
+                    </div>
+
+                    <div class="tab-pane mb-4" id="account-review-products">
+                        <div class="icon-box icon-box-side icon-box-light">
+                            <span class="icon-box-icon icon-orders">
+                                <i class="w-icon-star"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title text-capitalize ls-normal mb-0">Đánh giá sản phẩm</h4>
+                            </div>
+                        </div>
+
+                        <table class="shop-table account-orders-table mb-6">
+                            <thead>
+                                <tr style="text-align: center;">
+                                    <th class="order-id order-id-small">#</th>
+                                    <th>Chi tiết</th>
+                                    <th>Sản phẩm</th>
+                                    <th>Thời gian</th>
+                                    <th class="order-actions">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody class="reviewslist" style="text-align: center;">
+                                
+                            </tbody>
+                            <style>
+                                .reviewslist .order-status span {
+                                    width: 100%;
+                                }
+                            </style>
+                        </table>
+
+                        <a href="/list-product" class="btn btn-dark btn-rounded btn-icon-right">Xem thêm sản phẩm<i class="w-icon-long-arrow-right"></i></a>
+                    </div>
+
+                    <div class="tab-pane" id="to-the-shop">
+                        <div class="icon-box icon-box-side icon-box-light">
+                            <span class="icon-box-icon icon-downloads mr-2">
+                                <i class="w-icon-store"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title ls-normal">Mở Shop</h4>
+                            </div>
+                        </div>
+                        <p th:if="${!content.objs.seller.status}" class="mb-4">[[${UserDataRoot.status ? 'Bạn đủ điều kiện trở thành người bán.' : 'Vui lòng cập nhập & xác nhận lại thông tin cá nhân của bạn để trở thành người bán.'}]]</p>
+                        <a th:if="${!UserDataRoot.status}" href="#account-details" class="btn btn-dark btn-rounded btn-icon-right link-to-tab">Cập nhật thông tin<i class="w-icon-long-arrow-right"></i></a>
+                        <div class="wrap-seller" th:if="${content.objs.seller.id != null && UserDataRoot.status && !content.objs.seller.status}">
+                            Bạn đã đăng ký mở shop thành công. Yêu cầu của bạn hiện đang trong trạng thái chờ duyệt
+                        </div>
+                        <p th:if="${content.objs.seller.id != null && UserDataRoot.status && content.objs.seller.status}">
+                            Bạn đã tạo shop thành công.
+                        </p>
+                        <a href="/admin-panel" class="link-to-tab btn btn-dark btn-rounded btn-icon-left btn-back mt-6 mb-6"  th:if="${content.objs.seller.id != null && UserDataRoot.status && content.objs.seller.status}">Truy cập shop <i class="w-icon-long-arrow-right"></i></a>
+                        <style>
+                            .wrap-seller {
+                                padding: 18px;
+                                background-color: #369;
+                                border-radius: 8px;
+                                box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+                                margin: 0 14px;
+                                font-size: 15px;
+                                font-weight: bold;
+                                color: #fafafa;
+                                text-transform: uppercase;
+                                text-align: center;
+                            }
+                        </style>
+                        <div th:if="${UserDataRoot.status && content.objs.seller.id == null}" class="form account-details-form" >
+                            <div class="row">
+                                <div class="col-md-12 mb-2">
+                                    <button class="btn" onclick="defaultInfoSeller()">
+                                        Dùng thông tin tài khoản: [[${UserDataRoot.username}]]
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+
+                                        <label for="shopFullName">Tên shop *</label>
+                                        <input type="text" id="shopFullName" name="shopFullName" placeholder="Tên shop.."
+                                            class="form-control form-control-md" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="shopPhone">Số điện thoại *</label>
+                                        <input type="text" id="shopPhone" name="shopPhone" placeholder="Số điện thoại .." class="form-control form-control-md">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="shopCode">Mã CMND / CCCD *</label>
+                                        <input type="text" id="shopCode" name="shopCode" placeholder="Mã CMND / CCCD .." class="form-control form-control-md">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="shopEmail">Email *</label>
+                                        <input th:value="${content.objs.seller.email}" type="text" id="shopEmail" name="shopEmail" placeholder="Email .." class="form-control form-control-md">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-6">
+                                    <input type="hidden" class="form-control form-control-md" id="postal_code" name="postal_code" value="90000">
+                                    <div class="form-group">
+                                        <label for="shopType">Chọn hình thức *</label>
+                                        <select id="shopType" class="form-control form-control-md">
+                                            <option value="CA_NHAN">Cá nhân</option>
+                                            <option value="DOANH_NGHIEP">Doanh nghiệp</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="hidden" class="form-control form-control-md" id="postal_code" name="postal_code" value="90000">
+                                    <div class="form-group">
+                                        <label for="shopCategory">Ngành hàng chủ lực *</label>
+                                        <select id="shopCategory" class="form-control form-control-md">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="sellerOpen(this)" class="btn btn-dark btn-rounded btn-icon-right">Yêu Cầu Mở SHOP<i class="w-icon-long-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="account-addresses">
+                        <div class="icon-box icon-box-side icon-box-light">
+                            <span class="icon-box-icon icon-map-marker">
+                                <i class="w-icon-map-marker"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title mb-0 ls-normal">Addresses</h4>
+                            </div>
+                        </div>
+                        <p>Các địa chỉ sau sẽ được sử dụng trên trang thanh toán theo mặc định.</p>
+                        <div class="row">
+                            <div class="col-sm-6 mb-6">
+                                <div class="ecommerce-address billing-address pr-lg-8">
+                                    <h4 class="title title-underline ls-25 font-weight-bold">Billing Address</h4>
+                                    <address class="mb-4">
+                                        <table class="address-table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Họ và tên:</th>
+                                                    <td>[[${UserDataRoot.last_name}]] [[${UserDataRoot.first_name}]]
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Công ty:</th>
+                                                    <td>[[${UserDataRoot.company}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Địa chỉ:</th>
+                                                    <td>[[${UserDataRoot.billing_address}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Thành phố:</th>
+                                                    <td>[[${UserDataRoot.city}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Quốc gia:</th>
+                                                    <td>[[${UserDataRoot.country}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Postcode:</th>
+                                                    <td>[[${UserDataRoot.postal_code}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Số điện thoại:</th>
+                                                    <td>[[${UserDataRoot.phone}]]</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </address>
+                                    <a href="#account-details"
+                                        class="link-to-tab btn btn-link btn-underline btn-icon-right text-primary">Edit
+                                        your billing address<i class="w-icon-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 mb-6">
+                                <div class="ecommerce-address shipping-address pr-lg-8">
+                                    <h4 class="title title-underline ls-25 font-weight-bold">Shipping Address</h4>
+                                    <address class="mb-4">
+                                        <table class="address-table">
+                                            <tbody>
+                                                <tr>
+                                                    <th>Họ và tên:</th>
+                                                    <td>[[${UserDataRoot.last_name}]] [[${UserDataRoot.first_name}]]
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Công ty:</th>
+                                                    <td>[[${UserDataRoot.company}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Địa chỉ:</th>
+                                                    <td>[[${UserDataRoot.shipping_address}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Thành phố:</th>
+                                                    <td>[[${UserDataRoot.city}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Quốc gia:</th>
+                                                    <td>[[${UserDataRoot.country}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Postcode:</th>
+                                                    <td>[[${UserDataRoot.postal_code}]]</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Số điện thoại:</th>
+                                                    <td>[[${UserDataRoot.phone}]]</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </address>
+                                    <a href="#account-details"
+                                        class="link-to-tab btn btn-link btn-underline btn-icon-right text-primary">Edit
+                                        your
+                                        shipping address<i class="w-icon-long-arrow-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="account-details">
+                        <div class="icon-box icon-box-side icon-box-light">
+                            <span class="icon-box-icon icon-account mr-2">
+                                <i class="w-icon-user"></i>
+                            </span>
+                            <div class="icon-box-content">
+                                <h4 class="icon-box-title mb-0 ls-normal">Account Details</h4>
+                            </div>
+                        </div>
+                        <div class="form account-details-form" >
+                            <div class="row">
+                                <div class="mb-4 row align-items-center">
+                                    <label class="form-label-title col-sm-2 mb-0">Ảnh đại diện:</label>
+                                    <div class="col-sm-5" style="display: none;">
+                                        <input disabled th:value="${UserDataRoot.avatar}" id="avatar" type="hidden">
+                                        <input type="file" class="form-control" id="avatar_file" onchange="onChangeFile(event, '#avatar', '.avatar--review')" onclick="this.value=null;">
+                                    </div>
+                                    <div class="col-sm-12 text-center">
+                                        <img style=" width: 200px; height: 200px; cursor: pointer; object-fit: contain; border: 1px solid #ccc; border-radius: 4px;" class="avatar--review" th:src="${UserDataRoot.avatar != null ? UserDataRoot.avatar : 'https://www.proclinic-products.com/build/static/default-product.30484205.png'}" alt="AVT">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <label for="first_name">First name *</label>
+                                        <input type="text" id="first_name" name="first_name" placeholder="John"
+                                            class="form-control form-control-md" th:value="${UserDataRoot.first_name}">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="last_name">Last name *</label>
+                                        <input type="text" id="last_name" name="last_name" placeholder="Doe"
+                                            class="form-control form-control-md" th:value="${UserDataRoot.last_name}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="phone">Số điện thoại *</label>
+                                        <input type="text" id="phone" name="phone" placeholder="Số điện thoại .."
+                                            class="form-control form-control-md" th:value="${UserDataRoot.phone}">
+                                        <input type="hidden" id="email" name="email" placeholder="Số điện thoại .."
+                                            class="form-control form-control-md" th:value="${UserDataRoot.email}">
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="code">Mã CMND / CCCD *</label>
+                                        <input type="text" id="code" name="code" placeholder="Mã CMND / CCCD .."
+                                            class="form-control form-control-md" th:value="${UserDataRoot.code}">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="billing_address">Địa chỉ thanh toán *</label>
+                                        <input type="text" id="billing_address" name="billing_address"
+                                            placeholder="Địa chỉ thanh toán .." class="form-control form-control-md"
+                                            th:value="${UserDataRoot.billing_address}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="shipping_address">Địa chỉ giao hàng *</label>
+                                        <input type="text" id="shipping_address" name="shipping_address"
+                                            placeholder="Địa chỉ giao hàng .." class="form-control form-control-md"
+                                            th:value="${UserDataRoot.shipping_address}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-md-4">
+                                    <input type="hidden" class="form-control form-control-md" id="postal_code" name="postal_code" value="90000">
+                                    <div class="form-group">
+                                        <label for="city">Tỉnh / Thành Phố *</label>
+                                        <select th:data-current="${UserDataRoot.city}" onchange="renderState('#city', '#state')" id="city" class="form-control form-control-md">
+                                            <option value="-1">[[${UserDataRoot.city}]]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <input type="hidden" id="country" name="country" placeholder="Quốc gia .."
+                                        class="form-control form-control-md" th:value="${UserDataRoot.country}">
+                                    <div class="form-group">
+                                        <label for="state">Quận / Huyện *</label>
+                                        <select onchange="renderWard('#state', '#ward')" id="state" class="form-control form-control-md">
+                                            <option value="-1">[[${UserDataRoot.state}]]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="ward">Phường / Xã *</label>
+                                        <select id="ward" class="form-control form-control-md">
+                                            <option value="-1">[[${UserDataRoot.ward}]]</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="company">Công ty </label>
+                                        <input type="text" id="company" name="company" placeholder="Công ty .."
+                                            class="form-control form-control-md" th:value="${UserDataRoot.company}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="birthday">Ngày sinh *</label>
+                                        <input type="date" id="birthday" name="birthday" placeholder="Doe"
+                                            class="form-control form-control-md" th:value="${UserDataRoot.birthday}">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group" style="display: flex;">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="nam">Nam *</label>
+                                                <input th:checked="${UserDataRoot.gender}" type="radio" name="sex" id="nam" 
+                                                class="form-control form-control-md"
+                                                th:value="1">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="nu">Nữ *</label>
+                                                <input th:checked="${!UserDataRoot.gender}" type="radio" name="sex" id="nu" class="form-control form-control-md" th:value="0">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button onclick="changeProfile()" class="btn btn-dark btn-rounded btn-sm mb-4">Cập nhật</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="account-change">
+                        <div class="form account-details-form" action="#" method="post">
+                            <h4 class="title title-password ls-25 font-weight-bold">Password change</h4>
+                            <div class="form-group">
+                                <label class="text-dark" for="cur-password">Mật khẩu hiện tại</label>
+                                <input type="password" class="form-control form-control-md" id="cur-password"
+                                    name="cur_password">
+                            </div>
+                            <div class="form-group">
+                                <label class="text-dark" for="new-password">Mật khẩu mới</label>
+                                <input type="password" class="form-control form-control-md" id="new-password"
+                                    name="new_password">
+                            </div>
+                            <div class="form-group mb-10">
+                                <label class="text-dark" for="conf-password">Nhập lại mật khẩu mới</label>
+                                <input type="password" class="form-control form-control-md" id="conf-password"
+                                    name="conf_password">
+                            </div>
+                            <button onclick="changePassword()" class="btn btn-dark btn-rounded btn-sm mb-4">Thay đổi</button>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane order" id="order-details">
+                        <a href="#account-orders" class="link-to-tab btn btn-dark btn-rounded btn-icon-left btn-back mt-6 mb-6"><i class="w-icon-long-arrow-left"></i>Về danh sách đơn hàng</a>
+                        <p class="mb-7 title_detail"></p>
+                        <div class="order-details-wrapper mb-5">
+                            <h4 class="title text-uppercase ls-25 mb-5">Chi tiết đơn hàng</h4>
+                            <!-- End of Sub Orders-->
+                            <div id="billing-account-addresses">
+                                <div class="row">
+                                    <div class="col-sm-12 mb-12">
+                                        <div style=" margin: 12px; " class="mb-4 box-address-checkout">
+                                            <div class="box-address-checkout__title">Giao tới</div>
+                                            <p class="box-address-checkout__info">
+                                                <span class="customer_name">[[${UserDataRoot.first_name}]] [[${UserDataRoot.last_name}]]</span>
+                                                |
+                                                <span>[[${UserDataRoot.phone}]]</span>
+                                            </p>
+                                            <p>
+                                                <span class="address__type">Địa chỉ</span> 
+                                                <span class="customer_address">[[${UserDataRoot.shipping_address}]], 
+                                                    <span  class="customer_city">
+                                                        [[${UserDataRoot.city}]]
+                                                    </span>, 
+                                                    <span  class="customer_country">
+                                                        [[${UserDataRoot.country}]]
+                                                    </span>
+                                                </span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Account Address -->
+                            <table class="order-table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-dark">Sản phẩm</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list_table">
+                                    
+                                </tbody>
+                                <tfoot class="table_foot">
+                                    
+                                </tfoot>
+                            </table>
+                        </div>
+                        <!-- End of Order Details -->
+                        <div class="sub-orders mb-10">
+                            <div class="alert alert-icon alert-inline mb-5">
+                                <i class="w-icon-exclamation-triangle"></i>
+                                <strong>Ghi chú: </strong>: Đơn đặt hàng này có các sản phẩm từ nhiều nhà cung cấp. Vì vậy, chúng tôi đã chia điều này đặt hàng thành nhiều đơn đặt hàng của nhà cung cấp. Mỗi đơn đặt hàng sẽ được xử lý bởi nhà cung cấp tương ứng của họ một cách độc lập.
+                            </div>
+                            <h4 class="title mb-5 font-weight-bold ls-25">Theo dõi đơn hàng</h4>
+                            <table class="order-subtable">
+                                <thead>
+                                    <tr>
+                                        <th class="order">Order</th>
+                                        <th class="date">Thời gian</th>
+                                        <th class="status">Trạng thái</th>
+                                        <th class="total">Tổng tiền</th>
+                                        <th class="action"></th>
+                                    </tr>
+                                </thead>
+                                <tbody class="list_tracking">
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+            
+                        <a href="#account-orders" class="link-to-tab btn btn-dark btn-rounded btn-icon-left btn-back mt-6 mb-6"><i class="w-icon-long-arrow-left"></i>Về danh sách đơn hàng</a>
+                        <!-- <a href="#account-orders" class="link-to-tab btn  btn-rounded btn-icon-right btn-primary mt-6 mb-6">Mua lại đơn hàng này <i class="w-icon-long-arrow-right"></i></a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of PageContent -->
+</main>
+<!-- End of Main -->

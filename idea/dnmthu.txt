@@ -1,0 +1,9 @@
+tại trang chủ (slide show, chuyển ngữ, danh mục(theo loại), chuyển trang, tìm kiếm theo tên)
+đăng nhập 
+đăg ký
+trang chi tiết sản phẩm( gồm thông tin mặt hàng, đánh giá, thông tin người đăng)
+giỏ hàng ( tìm kiếm mặt hàng trong giỏ, show mặt hàng đã thêm vào giỏ, edit giỏ hàng, + số lượng sản phẩm tại giỏi)
+trang mua hàng(xác nhận địa chỉ nhận hàng, phương thức thanh toán)
+trang hỗ trợ( báo cáo lỗi khi không đặt đc hàng)
+trang admin ( thống kê, báo lỗi, show danh mục mặt hàng và số lượng hiện có, edit mặt hàng và số lượng hiện có, show tài khoản đã đăng ký trên hệ thống, edit tài khoản)
+**bổ sung điii :<

@@ -1,0 +1,20 @@
+Ý tưởng web:
+	- Trang chủ (client): Hiển thị sản phẩm(Chi thành nhiều phần như sản phẩm mới, sản phẩm, bán chạy,...), danh mục, các chương trình khuyến mãi.., 
+	- Trang chi tiết sản phẩm(client): 
+		+ Nhiều loại sản phẩm như là
+			Simple product - Sản phẩm thường.
+			Grouped product - Sản phẩm theo nhóm.
+			Configurable product - Sản phẩm tùy biến.
+			Virtual product - Sản phẩm ảo.
+			Bundle product - Set sản phẩm tùy chọn.
+			Downloadable product - Sản phẩm tải xuống được. 
+		*tham khảo các loại sản phẩm của magento(FW web thương mại ĐT php)
+		+ Đánh giá, bình luận sản phẩm
+	- Giỏ hàng (client):
+		+ Review (cái giỏ hàng nhỏ nhỏ)
+		+ Trang giỏ hàng: hiển thị số lượng, giá bán,,... short info..
+			++ Nhập mã giảm giá..
+	- Trang thanh toán(client):
+		+ NHập mã giảm giá
+		+ Chỉnh sửa sản phẩm muốn mua
+		+ Có nhiều loại thanh toán, onl(thẻ cào, số dư tài khoản trên web, momo, paypal, ....)

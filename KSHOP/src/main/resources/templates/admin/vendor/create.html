@@ -1,0 +1,73 @@
+<!-- Vendor Table Start -->
+<div class="page-body">
+    <div class="title-header">
+        <h5>[[${content.objs.shopStores.id < 0 ? "Đăng" : "Sửa"}]] cửa hàng</h5>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="tab-pane fade show active" id="pills-home">
+                            <div class="theme-form theme-form-2 mega-form">
+                                <div class="card-header-1">
+                                    <h5>Thông tin store</h5>
+                                </div>
+
+                                <div class="row g-4">
+                                    <input type="hidden" id="store_id" th:if="${content.objs.shopStores.id > 0}" th:value="${content.objs.shopStores.id}">
+                                    <div class="col-lg-6">
+                                        <label class="form-label-title mb-2 form-label">Store Code</label>
+                                        <input th:value="${content.objs.shopStores.store_code}" type="text" class="form-control" placeholder="Code cửa hàng" id="store_code">
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label class="form-label-title mb-2 form-label">Store Name</label>
+                                        <input th:value="${content.objs.shopStores.store_name}" type="text" class="form-control" placeholder="Tên cửa hàng" id="store_name">
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label class="col-form-label form-label-title mb-2">Desciption</label>
+                                        <input th:value="${content.objs.shopStores.description}" class="form-control" type="text" placeholder="Mô tả" id="description">
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label class="form-label-title mb-2 form-label">Address</label>
+                                        <input th:value="${content.objs.shopStores.address}" type="text" class="form-control" placeholder="Địa chỉ cửa hàng" id="address">
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label class="form-label-title mb-2 form-label">Phone</label>
+                                        <input th:value="${content.objs.shopStores.phone}" type="text" class="form-control" placeholder="Sđt cửa hàng" id="phone">
+                                    </div>
+
+                                    <div class="col-lg-6">
+                                        <label class="col-form-label form-label-title mb-2">Images</label>
+                                        <div class="col-sm-10">
+                                            <input th:value="${content.objs.shopStores.image}" class="form-control form-choose" type="text" id="image" multiple>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <button class="button-custom" th:if="${content.objs.shopStores.id < 0}" onclick="addStore()">Đăng cửa hàng</button>
+                                <button class="button-custom" th:if="${content.objs.shopStores.id > 0}" onclick="editStore()">Sửa cửa hàng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <!-- footer start-->
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+<!-- Vendor Table End -->

@@ -1,0 +1,11 @@
+Ý tưởng trang web:
+	+ Home (hiển thị sản phẩm tiêu biểu)
+	+ Shop (Gồm nhiều chức năng: tìm, sắp xếp,...)
+	+ Contact
+	+ Login (w FB, w GG)
+	+ Register
+	+ User (active mail, trờ thành nhà phân phối(CRUD product, hóa đơn), chuyển trạng thái giao hàng)
+	+ Admin (CRUD product, phân quyền account, thống kê)
+	+ Checkout 
+	+ Shopping cart
+	+ Details product

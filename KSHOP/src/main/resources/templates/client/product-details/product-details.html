@@ -1,0 +1,949 @@
+<!-- Start of Main -->
+<main class="main mb-10 pb-1">
+    <!-- Start of Breadcrumb -->
+    <nav class="breadcrumb-nav container">
+        <ul class="breadcrumb bb-no">
+            <li><a href="./">Home</a></li>
+            <li>Products</li>
+        </ul>
+        <ul class="product-nav list-style-none">
+            <li class="product-nav-prev">
+                <a href="#">
+                    <i class="w-icon-angle-left"></i>
+                </a>
+                <span class="product-nav-popup">
+                    <img src="/images/product-detail/product-nav-prev.jpg" alt="Product" width="110" height="110">
+                    <span class="product-name">Soft Sound Maker</span>
+                </span>
+            </li>
+            <li class="product-nav-next">
+                <a href="#">
+                    <i class="w-icon-angle-right"></i>
+                </a>
+                <span class="product-nav-popup">
+                    <img src="/images/product-detail/product-nav-next.jpg" alt="Product" width="110" height="110">
+                    <span class="product-name">Fabulous Sound Speaker</span>
+                </span>
+            </li>
+        </ul>
+    </nav>
+    <!-- End of Breadcrumb -->
+
+    <!-- Start of Page Content -->
+    <div class="page-content">
+        <div class="container">
+            <div class="row gutter-lg">
+                <div class="main-content">
+                    <div class="product product-single row">
+                        <div class="col-md-6 mb-4 mb-md-8">
+                            <div class="product-gallery product-gallery-sticky">
+                                <div class="swiper-container product-single-swiper swiper-theme nav-inner" data-swiper-options="{
+                                    'navigation': {
+                                        'nextEl': '.swiper-button-next',
+                                        'prevEl': '.swiper-button-prev'
+                                    }
+                                }">
+                                    <div class="swiper-wrapper row cols-1 gutter-no">
+                                        <div class="swiper-slide" th:each="productImg : ${content.objs.imgs}">
+                                            <figure class="product-image">
+                                                <img th:src="${productImg.image}" th:data-zoom-image="${productImg.image}" th:alt="${content.objs.product.product_name}" style=" height: 455px; object-fit: contain; width: 455px; ">
+                                            </figure>
+                                        </div>
+                                        <th:block th:if="${content.objs.imgs.size} == 0">
+                                            <div class="swiper-slide" >
+                                                <figure class="product-image">
+                                                    <img th:src="${content.objs.product.image}" th:data-zoom-image="${content.objs.product.image}" th:alt="${content.objs.product.product_name}" style=" height: 455px; object-fit: contain; width: 455px; ">
+                                                </figure>
+                                            </div>
+                                        </th:block>
+                                    </div>
+                                    <button class="swiper-button-next"></button>
+                                    <button class="swiper-button-prev"></button>
+                                    <a href="#" class="product-gallery-btn product-image-full"><i class="w-icon-zoom"></i></a>
+                                </div>
+                                <div class="product-thumbs-wrap" data-swiper-options="{
+                                    'navigation': {
+                                        'nextEl': '.swiper-button-next',
+                                        'prevEl': '.swiper-button-prev'
+                                    }
+                                }">
+                                    <div class="product-thumbs swiper-wrapper row cols-4 gutter-sm">
+                                        <div th:each="productImg : ${content.objs.imgs}" class="product-thumb swiper-slide">
+                                            <img th:src="${productImg.image}" th:alt="${content.objs.product.product_name}" style="height: 106px; object-fit: contain; width: 106px;">
+                                        </div>
+                                        <th:block th:if="${content.objs.imgs.size} == 0">
+                                            <div class="product-thumb swiper-slide">
+                                                <img th:src="${content.objs.product.image}" th:alt="${content.objs.product.product_name}" style="height: 106px; object-fit: contain; width: 106px;">
+                                            </div>
+                                        </th:block>
+                                    </div>
+                                    <button class="swiper-button-next"></button>
+                                    <button class="swiper-button-prev"></button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 mb-6 mb-md-8">
+                            <div class="product-details" data-sticky-options="{'minWidth': 767}">
+                                <h1 class="product-title">[[${content.objs.product.product_name}]]</h1>
+                                <div class="product-bm-wrapper">
+                                    <figure class="brand">
+                                        <img src="/images/product-detail/brand-2.jpg" alt="Brand" width="105" height="48">
+                                    </figure>
+                                    <div class="product-meta">
+                                        <div class="product-categories">
+                                            Danh mục:
+                                            <span class="product-category"><a href="#">[[${content.objs.product.categories.category_name}]]</a></span>
+                                        </div>
+                                        <div th:if="${content.objs.product.quantity > 0}" class="product-sku products-quantity">
+                                            Còn lại <span> [[${content.objs.product.quantity}]]</span> sản phẩm
+                                        </div>
+                                        <div class="product-sku" th:if="${content.objs.product.quantity == 0}">
+                                            <em>Đã hết hàng</em>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr class="product-divider">
+
+                                <div class="product-price">
+                                    <ins class="new-price priceFormat">[[${content.objs.product.list_price}]]</ins>
+                                    <ins class="old-price priceFormat">[[${content.objs.product.standard_cost}]]</ins>
+                                </div>
+
+                                <div class="ratings-container">
+                                    <div class="ratings-full">
+                                        <span class="ratings" th:style="${'width: '+(content.objs.avgDanhGia * 20)+'%;'}"></span>
+                                        <span class="tooltiptext tooltip-top"></span>
+                                    </div>
+                                    <a href="#product-tab-reviews" class="rating-reviews">([[${content.objs.tongDanhGia}]] đánh giá)</a>
+                                    
+                                </div>
+
+                                <div class="product-short-desc">
+                                    <ul class="list-type-check list-style-none">
+                                        <li>[[${content.objs.product.short_description}]]</li>
+                                    </ul>
+                                </div>
+
+                                <hr class="product-divider">
+                                <div th:each="prodType, iter : ${content.objs.listMapType}" class="product-form product-variation-form product-size-swatch product__types-box">
+                                    <label class="mb-1">
+                                        [[${prodType.name}]]: 
+                                        <span class="types__val"></span>
+                                    </label>
+                                    <div class="flex-wrap d-flex align-items-center product-variations">
+                                        <a href="#" th:class="${(item.image != null && item.image != '') ? 'size' : 'size-nho size'}" th:each="item : ${prodType.data}" th:data-list-imgs="${item.list_imgs}" th:data-id="${item.id}">
+                                            <img th:if="${item.image != null && item.image != ''}" class="img__type-review" th:src="${item.image}" alt="AVT">
+                                            <span class="label__type-review" >[[${item.name}]]</span>
+                                            <img class="selected__type-review" src="/images/selected-variant-indicator.svg" alt="Selected">
+                                        </a>
+                                    </div>
+                                    <a th:if="${content.objs.listMapType.size -1 == iter.index}" href="#" class="product-variation-clean">
+                                        Chọn lại (loại này còn lại tối đa <span> [[${content.objs.product.quantity}]]</span> sản phẩm)
+                                    </a>
+                                    
+                                </div>
+
+                                <div class="product-variation-price">
+                                    <span class="priceFormat">[[${content.objs.product.list_price}]]</span>
+                                </div>
+
+                                <div class="fix-bottom product-sticky-content sticky-content">
+                                    <div class="product-form container">
+                                        <div class="product-qty-form">
+                                            <div class="input-group">
+                                                <input class="quantity form-control" type="number" min="1" th:max="${content.objs.product.quantity}">
+                                                <button class="quantity-plus w-icon-plus"></button>
+                                                <button class="quantity-minus w-icon-minus"></button>
+                                            </div>
+                                        </div>
+                                        <input type="hidden" id="product_id" th:value="${content.objs.product.id}">
+                                        <button th:if="${content.objs.product.quantity > 0}" onclick="addProductInDetail(this)" class="btn btn-primary btn-cart">
+                                            <i class="w-icon-cart"></i>
+                                            <span>Thêm vào giỏ hàng</span>
+                                        </button>
+                                        <button style="background-color: #eee; border-color: #eee; color: #666; pointer-events: none;" th:if="${content.objs.product.quantity == 0}" onclick="addProductInDetail(this)" class="btn btn-primary btn-cart unactive">
+                                            <i class="w-icon-cart"></i>
+                                            <span>Đã hết hàng</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="social-links-wrapper">
+                                    <div class="social-links">
+                                        <div class="social-icons social-no-color border-thin">
+                                            <a href="#" class="social-icon social-facebook w-icon-facebook"></a>
+                                            <a href="#" class="social-icon social-twitter w-icon-twitter"></a>
+                                            <a href="#" class="social-icon social-pinterest fab fa-pinterest-p"></a>
+                                            <a href="#" class="social-icon social-whatsapp fab fa-whatsapp"></a>
+                                            <a href="#" class="social-icon social-youtube fab fa-linkedin-in"></a>
+                                        </div>
+                                    </div>
+                                    <span class="divider d-xs-show"></span>
+                                    <div class="product-link-wrapper d-flex">
+                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart"><span></span></a>
+                                        <a href="#" class="btn-product-icon btn-compare btn-icon-left w-icon-compare"><span></span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab tab-nav-boxed tab-nav-underline product-tabs">
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li class="nav-item">
+                                <a href="#product-tab-description" class="nav-link active">Mô tả</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#product-tab-specification" class="nav-link">Thông tin thêm</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#product-tab-vendor" class="nav-link">Thông tin shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#product-tab-reviews" class="nav-link">Đánh giá ([[${content.objs.tongDanhGia}]])</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="product-tab-description">
+                                <div class="row mb-4">
+                                    <div class="col-md-6 mb-5">
+                                        <h4 class="title tab-pane-title font-weight-bold mb-2">Chi tiết sản phẩm</h4>
+                                        <ul class="list-type-check">
+                                            <li>
+                                                [[${content.objs.product.short_description}]]
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6 mb-5">
+                                        <div class="banner banner-video product-video br-xs">
+                                            <figure class="banner-media">
+                                                <a href="#">
+                                                    <img src="/images/product-detail/video-banner-610x300.jpg" alt="banner" width="610" height="300" style="background-color: #bebebe;">
+                                                </a>
+                                                <a class="btn-play-video btn-iframe" href="/assets/video/memory-of-a-woman.mp4"></a>
+                                            </figure>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        [(${content.objs.product.description})] 
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="product-tab-specification">
+                                <ul class="list-none">
+                                    <li>
+                                        <label>Model</label>
+                                        <p>Skysuite 320</p>
+                                    </li>
+                                    <li>
+                                        <label>Color</label>
+                                        <p>Black</p>
+                                    </li>
+                                    <li>
+                                        <label>Size</label>
+                                        <p>Large, Small</p>
+                                    </li>
+                                    <li>
+                                        <label>Guarantee Time</label>
+                                        <p>3 Months</p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="product-tab-vendor">
+                                <div class="row mb-3">
+                                    <div class="col-md-6 mb-4">
+                                        <figure class="vendor-banner br-sm">
+                                            <img  th:src="${content.objs.product.users.stores.background}" th:alt="${content.objs.product.users.stores.store_name}" width="610" height="295" style="background-color: #353B55;">
+                                        </figure>
+                                    </div>
+                                    <div class="col-md-6 pl-2 pl-md-6 mb-4">
+                                        <div class="vendor-user">
+                                            <figure class="vendor-logo mr-4">
+                                                <a href="#">
+                                                    <img th:src="${content.objs.product.users.stores.image}" th:alt="${content.objs.product.users.stores.store_name}" width="80" height="80">
+                                                </a>
+                                            </figure>
+                                            <div>
+                                                <div class="vendor-name"><a href="#" th:text="${content.objs.product.users.stores.store_name}">Jone Doe</a></div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full">
+                                                        <span class="ratings" style="width: 90%;"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <a href="#" class="rating-reviews">(32 Reviews)</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <ul class="vendor-info list-style-none">
+                                            <li class="store-name">
+                                                <label>Tên SHOP:</label>
+                                                <span class="detail">[[${content.objs.product.users.stores.store_name}]]</span>
+                                            </li>
+                                            <li class="store-address">
+                                                <label>Địa chỉ:</label>
+                                                <span class="detail">
+                                                    [[${content.objs.product.users.stores.address}]]
+                                                </span>
+                                            </li>
+                                            <li class="store-phone">
+                                                <label>Số Điện Thoại:</label>
+                                                <a href="#tel:">[[${content.objs.product.users.stores.phone}]]</a>
+                                            </li>
+                                        </ul>
+                                        <a th:href="${'/store/' + content.objs.product.users.stores.id}" class="btn btn-dark btn-link btn-underline btn-icon-right">Xem SHOP<i class="w-icon-long-arrow-right"></i></a>
+                                    </div>
+                                </div>
+                                <p class="mb-5">
+                                    [(${content.objs.product.users.stores.description})]
+                                </p>
+                            </div>
+                            <div class="tab-pane" id="product-tab-reviews">
+                                <div class="row mb-4">
+                                    <div class="col-xl-4 col-lg-5 mb-4">
+                                        <div class="ratings-wrapper">
+                                            <div class="avg-rating-container">
+                                                <h4 class="avg-mark font-weight-bolder ls-50" id="avr_rating">[[${content.objs.avgDanhGia}]]</h4>
+                                                <div class="avg-rating">
+                                                    <div class="ratings-container" style=" flex-direction: column-reverse; gap: 10px; ">
+                                                        <div class="ratings-full">
+                                                            <span class="ratings" th:style="${'width: '+(content.objs.avgDanhGia * 20)+'%;'}"></span>
+                                                            <span class="tooltiptext tooltip-top"></span>
+                                                        </div>
+                                                        <a href="#" class="rating-reviews">([[${content.objs.tongDanhGia}]] Nhận xét)</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="ratings-list">
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full small">
+                                                        <span class="ratings small" style="width: 100%;"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-sm ">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="progress-value">
+                                                        <mark>[[${content.objs.namSaoPercen}]]%</mark>
+                                                        <span>[[${content.objs.namSao}]]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full small">
+                                                        <span class="ratings small" style="width: 80%;"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-sm ">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="progress-value">
+                                                        <mark>[[${content.objs.bonSaoPercen}]]%</mark>
+                                                        <span>[[${content.objs.bonSao}]]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full small">
+                                                        <span class="ratings small" style="width: 60%;"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-sm ">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="progress-value">
+                                                        <mark>[[${content.objs.baSaoPercen}]]%</mark>
+                                                        <span>[[${content.objs.baSao}]]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full small">
+                                                        <span class="ratings small" style="width: 40%;"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-sm ">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="progress-value">
+                                                        <mark>[[${content.objs.haiSaoPercen}]]%</mark>
+                                                        <span>[[${content.objs.haiSao}]]</span>
+                                                    </div>
+                                                </div>
+                                                <div class="ratings-container">
+                                                    <div class="ratings-full small">
+                                                        <span class="ratings small" style="width: 20%;"></span>
+                                                        <span class="tooltiptext tooltip-top"></span>
+                                                    </div>
+                                                    <div class="progress-bar progress-bar-sm ">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="progress-value">
+                                                        <mark>[[${content.objs.motSaoPercen}]]%</mark>
+                                                        <span>[[${content.objs.motSao}]]</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-8 col-lg-7 mb-4" style=" display: flex; flex-direction: column; ">
+                                        <p>
+                                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sint repellendus, adipisci laudantium iste at numquam, asperiores nesciunt quasi placeat maxime iure illo accusamus cumque vitae deleniti nulla. Modi, amet error.
+                                        </p>
+                                        <ul style="margin-top: auto;" class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item">
+                                                <a href="#show-all" class="nav-link active">Tất cả</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#helpful-positive" class="nav-link">Hữu ích</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#highest-rating" class="nav-link">Đánh giá cao</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a href="#lowest-rating" class="nav-link">Đánh giá thấp</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="tab tab-nav-boxed tab-nav-outline tab-nav-center">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="show-all">
+                                            <ul class="comments list-style-none product_rating">
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="helpful-positive">
+                                            <ul class="comments list-style-none">
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="highest-rating">
+                                            <ul class="comments list-style-none">
+                                                
+                                            </ul>
+                                        </div>
+                                        <div class="tab-pane" id="lowest-rating">
+                                            <ul class="comments list-style-none">
+                                                
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <style>
+                                        .comment-avatar img {
+                                            border: 2px solid #ccc;
+                                            object-fit: contain;
+                                            border-radius: 4px;
+                                            height: 90px;
+                                            width: 90px;
+                                        }
+                                    </style>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="vendor-product-section">
+                        <div class="title-link-wrapper mb-4">
+                            <h4 class="title text-left">Sản phẩm khác của shop</h4>
+                            <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">Xem thêm sản phẩm<i class="w-icon-long-arrow-right"></i></a>
+                        </div>
+                        <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'spaceBetween': 20,
+                            'slidesPerView': 2,
+                            'breakpoints': {
+                                '576': {
+                                    'slidesPerView': 3
+                                },
+                                '768': {
+                                    'slidesPerView': 4
+                                },
+                                '992': {
+                                    'slidesPerView': 3
+                                }
+                            }
+                        }">
+                            <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/1-1.jpg" alt="Product" width="300" height="338">
+                                            <img src="/images/product-detail/1-2.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="product-default.html">Sticky Pencil</a>
+                                        </h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">$20.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/2.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Electronics</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="product-default.html">Mini
+                                                Multi-Functional Cooker</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 80%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">
+                                                <ins class="new-price">$480.00</ins><del class="old-price">$534.00</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/3.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Sports</a></div>
+                                        <h4 class="product-name"><a href="product-default.html">Skate Pan</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">
+                                                <ins class="new-price">$278.00</ins><del class="old-price">$310.00</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/4-1.jpg" alt="Product" width="300" height="338">
+                                            <img src="/images/product-detail/4-2.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <div class="product-cat"><a href="shop-banner-sidebar.html">Accessories</a>
+                                        </div>
+                                        <h4 class="product-name"><a href="product-default.html">Clip Attachment</a>
+                                        </h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(5 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">$40.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="related-product-section">
+                        <div class="title-link-wrapper mb-4">
+                            <h4 class="title">Related Products</h4>
+                            <a href="#" class="btn btn-dark btn-link btn-slide-right btn-icon-right">More
+                                Products<i class="w-icon-long-arrow-right"></i></a>
+                        </div>
+                        <div class="swiper-container swiper-theme" data-swiper-options="{
+                            'spaceBetween': 20,
+                            'slidesPerView': 2,
+                            'breakpoints': {
+                                '576': {
+                                    'slidesPerView': 3
+                                },
+                                '768': {
+                                    'slidesPerView': 4
+                                },
+                                '992': {
+                                    'slidesPerView': 3
+                                }
+                            }
+                        }">
+                            <div class="swiper-wrapper row cols-lg-3 cols-md-4 cols-sm-3 cols-2">
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/5.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-name"><a href="product-default.html">Drone</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">$632.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/6.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-name"><a href="product-default.html">Official Camera</a>
+                                        </h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(3 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">
+                                                <ins class="new-price">$263.00</ins><del class="old-price">$300.00</del>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/7-1.jpg" alt="Product" width="300" height="338">
+                                            <img src="/images/product-detail/7-2.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-name"><a href="product-default.html">Phone Charge Pad</a>
+                                        </h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 80%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(8 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">$23.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide product">
+                                    <figure class="product-media">
+                                        <a href="product-default.html">
+                                            <img src="/images/product-detail/8.jpg" alt="Product" width="300" height="338">
+                                        </a>
+                                        <div class="product-action-vertical">
+                                            <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                            <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Add to wishlist"></a>
+                                            <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Add to Compare"></a>
+                                        </div>
+                                        <div class="product-action">
+                                            <a href="#" class="btn-product btn-quickview" title="Quick View">Quick
+                                                View</a>
+                                        </div>
+                                    </figure>
+                                    <div class="product-details">
+                                        <h4 class="product-name"><a href="product-default.html">Fashionalble
+                                                Pencil</a></h4>
+                                        <div class="ratings-container">
+                                            <div class="ratings-full">
+                                                <span class="ratings" style="width: 100%;"></span>
+                                                <span class="tooltiptext tooltip-top"></span>
+                                            </div>
+                                            <a href="product-default.html" class="rating-reviews">(9 reviews)</a>
+                                        </div>
+                                        <div class="product-pa-wrapper">
+                                            <div class="product-price">$50.00</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <!-- End of Main Content -->
+                <aside class="sidebar product-sidebar sidebar-fixed right-sidebar sticky-sidebar-wrapper">
+                    <div class="sidebar-overlay"></div>
+                    <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+                    <a href="#" class="sidebar-toggle d-flex d-lg-none"><i class="fas fa-chevron-left"></i></a>
+                    <div class="sidebar-content scrollable">
+                        <div class="sticky-sidebar">
+                            <div class="widget widget-icon-box mb-6">
+                                <div class="icon-box icon-box-side">
+                                    <span class="icon-box-icon text-dark">
+                                        <i class="w-icon-truck"></i>
+                                    </span>
+                                    <div class="icon-box-content">
+                                        <h4 class="icon-box-title">Miễn phí vận chuyển</h4>
+                                        <p>cho đơn hàng từ 1 triệu đồng</p>
+                                    </div>
+                                </div>
+                                <div class="icon-box icon-box-side">
+                                    <span class="icon-box-icon text-dark">
+                                        <i class="w-icon-bag"></i>
+                                    </span>
+                                    <div class="icon-box-content">
+                                        <h4 class="icon-box-title">Thanh toán bảo mật</h4>
+                                        <p>cam kết an toàn mọi giao dịch</p>
+                                    </div>
+                                </div>
+                                <div class="icon-box icon-box-side">
+                                    <span class="icon-box-icon text-dark">
+                                        <i class="w-icon-money"></i>
+                                    </span>
+                                    <div class="icon-box-content">
+                                        <h4 class="icon-box-title">Đảm Bảo Lại Tiền</h4>
+                                        <p>bất kỳ trong vòng 30 ngày</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Widget Icon Box -->
+
+                            <div class="widget widget-banner mb-9">
+                                <div class="banner banner-fixed br-sm">
+                                    <figure>
+                                        <img th:src="${content.objs.product.image}" alt="Banner" width="266" height="220" style="background-color: #1D2D44;">
+                                    </figure>
+                                    <div class="banner-content">
+                                        <div class="banner-price-info font-weight-bolder text-white lh-1 ls-25">
+                                            40<sup class="font-weight-bold">%</sup><sub class="font-weight-bold text-uppercase ls-25">Off</sub>
+                                        </div>
+                                        <h4 class="banner-subtitle text-white font-weight-bolder text-uppercase mb-0">
+                                            Ultimate Sale</h4>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Widget Banner -->
+
+                            <div class="widget widget-products">
+                                <div class="title-link-wrapper mb-2">
+                                    <h4 class="title title-link font-weight-bold">More Products</h4>
+                                </div>
+                            
+                                <div class="swiper nav-top">
+                                    <div class="swiper-container swiper-theme nav-top" data-swiper-options="{
+                                        'slidesPerView': 1,
+                                        'spaceBetween': 20,
+                                        'navigation': {
+                                            'prevEl': '.swiper-button-prev',
+                                            'nextEl': '.swiper-button-next'
+                                        }
+                                    }">
+                                        <div class="swiper-wrapper">
+                                            <div class="widget-col swiper-slide">
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="/images/product-detail/13.jpg" alt="Product" width="100" height="113">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="#">Smart Watch</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 100%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">$80.00 - $90.00</div>
+                                                    </div>
+                                                </div>
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="/images/product-detail/14.jpg" alt="Product" width="100" height="113">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="#">Sky Medical Facility</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 80%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">$58.00</div>
+                                                    </div>
+                                                </div>
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="/images/product-detail/15.jpg" alt="Product" width="100" height="113">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="#">Black Stunt Motor</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 60%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">$374.00</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="widget-col swiper-slide">
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="/images/product-detail/16.jpg" alt="Product" width="100" height="113">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="#">Skate Pan</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 100%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">$278.00</div>
+                                                    </div>
+                                                </div>
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="/images/product-detail/17.jpg" alt="Product" width="100" height="113">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="#">Modern Cooker</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 80%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">$324.00</div>
+                                                    </div>
+                                                </div>
+                                                <div class="product product-widget">
+                                                    <figure class="product-media">
+                                                        <a href="#">
+                                                            <img src="/images/product-detail/18.jpg" alt="Product" width="100" height="113">
+                                                        </a>
+                                                    </figure>
+                                                    <div class="product-details">
+                                                        <h4 class="product-name">
+                                                            <a href="#">CT Machine</a>
+                                                        </h4>
+                                                        <div class="ratings-container">
+                                                            <div class="ratings-full">
+                                                                <span class="ratings" style="width: 100%;"></span>
+                                                                <span class="tooltiptext tooltip-top"></span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="product-price">$236.00</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="swiper-button-next"></button>
+                                        <button class="swiper-button-prev"></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <!-- End of Sidebar -->
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Content -->
+</main>
+<!-- End of Main -->

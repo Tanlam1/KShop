@@ -1,0 +1,189 @@
+<!-- Settings Section Start -->
+<div class="page-body">
+    <div class="title-header">
+        <h5>Cài đặt</h5>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <!-- Store Start -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2 mb-3">
+                                    <h5>Cửa hàng</h5>
+                                </div>
+                                <div class="theme-form theme-form-2 mega-form mt-4">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Ảnh đại diện</label>
+                                            <div class="col-sm-5">
+                                                <input th:value="${AdminDataRoot.stores.id}" id="store_id" type="hidden">
+                                                <input th:value="${AdminDataRoot.id}" id="user_id" type="hidden">
+                                                <input disabled th:value="${AdminDataRoot.stores.image}" id="store_image" type="hidden">
+                                                <input type="file" class="form-control" id="store_image_file" onchange="onChangeFile(event, '#store_image', '.store_image--review')" onclick="this.value=null;">
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <img class="store_image--review" th:src="${AdminDataRoot.stores.image != null ? AdminDataRoot.stores.image : 'https://www.proclinic-products.com/build/static/default-product.30484205.png'}" alt="AVT">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Ảnh bìa</label>
+                                            <div class="col-sm-5">
+                                                <input disabled th:value="${AdminDataRoot.stores.background}" id="store_background" type="hidden">
+                                                <input type="file" class="form-control" id="store_background_file" onchange="onChangeFile(event, '#store_background', '.store_background--review')" onclick="this.value=null;">
+                                            </div>
+                                            <div class="col-sm-5">
+                                                <img class="store_background--review" th:src="${AdminDataRoot.stores.background != null ? AdminDataRoot.stores.background : 'https://www.madeireiraestrela.com.br/images/joomlart/demo/default.jpg'}" alt="background">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Mã cửa hàng</label>
+                                            <div class="col-sm-10">
+                                                <input disabled th:value="${AdminDataRoot.stores.store_code}" id="store_code" class="form-control" type="text" placeholder="Nhập mã cửa hàng..">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Tên cửa hàng</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.stores.store_name}" id="store_name" class="form-control" type="text" placeholder="Nhập tên cửa hàng..">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">SĐT cửa hàng</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.stores.phone}" id="store_phone" class="form-control" type="text" placeholder="Nhập tên cửa hàng..">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Địa chỉ</label>
+                                            <div class="col-sm-10">
+                                                <input disabled th:value="${AdminDataRoot.stores.address}" id="store_address" class="form-control" type="text" placeholder="Nhập địa chỉ..">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-12 mb-2">Mô tả</label>
+                                            <div class="col-sm-12">
+                                                <div id="editor">[(${AdminDataRoot.stores.description})]</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <style>
+                                .store_image--review {
+                                    width: 100px;
+                                    height: 100px;
+                                    object-fit: contain;
+                                }
+                                .store_background--review {
+                                    width: 400px;
+                                    height: 120px;
+                                    object-fit: cover;
+                                }
+                            </style>
+                        </div>
+                        <!-- Store End -->
+
+                        <!-- Details Start -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2 mb-3">
+                                    <h5>Thông tin</h5>
+                                </div>
+                                <div class="theme-form theme-form-2 mega-form">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Họ và tên đệm</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.first_name}" id="first_name" class="form-control" type="text" placeholder="Nhập họ và tên đệm">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Tên của bạn</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.last_name}" id="last_name" class="form-control" type="text" placeholder="Nhập tên của bạn..">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Số điện thoại</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.phone}" id="phone" class="form-control" type="text" placeholder="Nhập số điện thoại..">
+                                            </div>
+                                        </div>
+
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Mã CCCD / CMND</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.code}" id="code" class="form-control" type="text" placeholder="Nhập mã CCCD / CMND..">
+                                            </div>
+                                        </div>
+
+                                        <!-- <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Địa chỉ email</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.email}" id="email" class="form-control" type="email" placeholder="Nhập địa chỉ email..">
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Details End -->
+
+                        <!-- Address Start -->
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="card-header-2 mb-3">
+                                    <h5>Địa chỉ</h5>
+                                </div>
+                                <div class="theme-form theme-form-2 mega-form mt-4">
+                                    <div class="row">
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Đường, số nhà</label>
+                                            <div class="col-sm-10">
+                                                <input th:value="${AdminDataRoot.address1}" id="address1" class="form-control" type="text" placeholder="Nhập địa chỉ..">
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Tỉnh / Thành Phố</label>
+                                            <div class="col-sm-10">
+                                                <select th:data-current="${AdminDataRoot.city}" onchange="renderState('#city', '#state')" id="city" class="form-control form-control-md">
+                                                    <option value="-1">[[${AdminDataRoot.city}]]</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Quận / Huyện</label>
+                                            <div class="col-sm-10">
+                                                <select onchange="renderWard('#state', '#ward')" id="state" class="form-control form-control-md">
+                                                    <option value="-1">[[${AdminDataRoot.state}]]</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="mb-4 row align-items-center">
+                                            <label class="form-label-title col-sm-2 mb-0">Phường / Xã</label>
+                                            <div class="col-sm-10">
+                                                <select id="ward" class="form-control form-control-md">
+                                                    <option value="-1">[[${AdminDataRoot.ward}]]</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Address End -->
+                        <button class="button-custom" onclick="update()">Áp dụng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Settings Section End -->

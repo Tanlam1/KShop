@@ -1,0 +1,253 @@
+<!-- Page Sidebar Start-->
+<div class="sidebar-wrapper">
+    <div>
+        <div class="logo-wrapper logo-wrapper-center">
+            <a href="/admin-panel/dashboard" data-bs-original-title="" title="">
+                <img class="img-fluid for-dark" src="https://img.icons8.com/cotton/64/000000/shop--v7.png" alt="">
+            </a>
+            <div class="back-btn">
+                <i class="fa fa-angle-left"></i>
+            </div>
+            <div class="toggle-sidebar">
+                <i class="status_toggle middle sidebar-toggle" data-feather="grid"></i>
+            </div>
+        </div>
+        <div class="logo-icon-wrapper">
+            <a href="/admin-panel/dashboard">
+                <img class="img-fluid main-logo" src="https://img.icons8.com/cotton/64/000000/shop--v7.png" alt="logo">
+            </a>
+        </div>
+        <nav class="sidebar-main">
+            <div class="left-arrow" id="left-arrow">
+                <i data-feather="arrow-left"></i>
+            </div>
+
+            <div id="sidebar-menu">
+                <ul class="sidebar-links" id="simple-bar">
+                    <li class="back-btn"></li>
+                    <li class="sidebar-main-title sidebar-main-title-3">
+                        <div>
+                            <h6 class="lan-1">General</h6>
+                            <p class="lan-2">Dashboards &amp; Users.</p>
+                        </div>
+                    </li>
+
+                    <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/dashboards">
+                            <i data-feather="home"></i>
+                            <span>Quản lý</span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isAdmin}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="users"></i>
+                            <span>Người dùng</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/users">Tất cả người dùng</a>
+                            </li>
+                            <li>
+                                <a href="/admin-panel/add/users">Thêm mới người dùng</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li th:if="${isAdmin || isShoper}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="archive"></i>
+                            <span>Đơn hàng</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/orders">Danh sách đơn</a>
+                            </li>
+                            <!-- <li>
+                                <a href="/admin-panel/tracking-orders">Order Tracking</a>
+                            </li> -->
+                        </ul>
+                    </li>
+
+                    <li th:if="${isAdmin}" class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="users"></i>
+                            <span>Cửa hàng</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/vendors">Danh sách cửa hàng</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/create/vendors">Tạo mới cửa hàng</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/require/vendors">Danh sách yêu cầu mở shop</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <!-- <li class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="users"></i>
+                            <span>Localization</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/translation">Translation</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/currency-rates">Currency Rates</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/taxes">Taxes</a>
+                            </li>
+                        </ul>
+                    </li> -->
+
+                    <li th:if="${isAdmin || isShoper}" class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="box"></i>
+                            <span>Sản phẩm</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/product">Danh sách sản phẩm</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/add/product">Thêm mới sản phẩm</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li th:if="${isAdmin}" class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="align-left"></i>
+                            <span>Danh mục</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/categories">Danh sách danh mục</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/create/category">Tạo mới danh mục</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li th:if="${isAdmin}" class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="tag"></i>
+                            <span>Khuyến mãi</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/coupons">Danh sách</a>
+                            </li>
+
+                            <li>
+                                <a href="/admin-panel/create/coupon">Tạo mới</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li th:if="${isAdmin || isShoper}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/review-products">
+                            <i data-feather="star"></i>
+                            <span>Đánh giá sản phẩm</span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isAdmin || isShoper}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/invoice">
+                            <i data-feather="archive"></i>
+                            <span>Hóa đơn </span>
+                        </a>
+                    </li>
+
+                    <!-- <li class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/support-ticket">
+                            <i data-feather="phone"></i>
+                            <span>Support Ticket</span>
+                        </a>
+                    </li> -->
+
+                    <li th:if="${isShoper}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/shop-voucher">
+                            <i data-feather="tag"></i>
+                            <span>Mã giảm giá </span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isAdmin || isShoper}" class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="settings"></i>
+                            <span>Cài đặt</span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li th:if="${isShoper}" > 
+                                <a href="/admin-panel/money-receive">Phương thức nhận tiền</a>
+                            </li>
+                            <li>
+                                <a href="/admin-panel/profile">Profile Setting</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li th:if="${isAdmin || isShoper}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/reports">
+                            <i data-feather="file-text"></i>
+                            <span>Báo cáo</span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isShoper}" class="sidebar-list">
+                        <a target="_blank" class="sidebar-link sidebar-title link-nav" th:href="${'/store/' + AdminDataRoot.stores.id}">
+                            <i data-feather="arrow-right"></i>
+                            <span>Xem SHOP</span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isAdminMoney}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/reports/money-order">
+                            <i data-feather="file-text"></i>
+                            <span>Duyệt đơn cho shop</span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isAdminMoney}" class="sidebar-list">
+                        <a class="sidebar-link sidebar-title link-nav" href="/admin-panel/reports/money-send">
+                            <i data-feather="send"></i>
+                            <span>Chuyển tiền cho shop</span>
+                        </a>
+                    </li>
+
+                    <li th:if="${isAdminMoney}" class="sidebar-list">
+                        <a class="linear-icon-link sidebar-link sidebar-title" href="javascript:void(0)">
+                            <i data-feather="settings"></i>
+                            <span>Lịch sử </span>
+                        </a>
+                        <ul class="sidebar-submenu">
+                            <li>
+                                <a href="/admin-panel/reports/analytics-add">Duyệt đơn & Cộng tiền</a>
+                            </li>
+                            <li>
+                                <a href="/admin-panel/reports/analytics-bank">Chuyển tiền</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="right-arrow" id="right-arrow">
+                <i data-feather="arrow-right"></i>
+            </div>
+        </nav>
+    </div>
+</div>
+<!-- Page Sidebar Ends-->

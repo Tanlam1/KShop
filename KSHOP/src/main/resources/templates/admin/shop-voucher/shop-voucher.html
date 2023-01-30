@@ -1,0 +1,273 @@
+<div class="page-body">
+    <div class="title-header title-header-1">
+        <h5>Chương trình khuyến mãi</h5>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header-2">
+                            <h5>Voucher đã đăng ký</h5>
+                        </div>
+                        <div class="table-responsive table-desi">
+                            <table class="user-table coupon-list-table table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Mã</th>
+                                        <th>Tên</th>
+                                        <th>Giảm</th>
+                                        <th>Giá</th>
+                                        <th>Ngày bắt đầu</th>
+                                        <th>Ngày kết thúc</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="coupons-js">
+                                    <!-- coupons-js -->
+                                    <tr th:each="voucher : ${content.objs.vouchersRegisted}">
+                                        <td class="date-count">
+                                            <span class="dkkm-span">[[${voucher.end_date}]]</span>
+                                        </td>
+                                        <td>
+                                            [[${voucher.voucher_code}]]
+                                        </td>
+                                        <td>
+                                            [[${voucher.voucher_name}]]
+                                        </td>
+                                        <td>
+                                        [[
+                                            'Giảm ' + 
+                                            ${#numbers.formatDecimal(voucher.discount_amount, 1, 'DEFAULT', 0, 'DEFAULT')} + 
+                                            ${voucher._fixed ? 'đ' : '%'}  
+                                        ]]
+                                        </td>
+                                        <td>
+                                            <span class="dkkm-span">[[${voucher.price == 0 ? 'Miễn phí' : #numbers.formatDecimal(voucher.price, 1, 'DEFAULT', 0, 'DEFAULT') + 'đ'}]]</span>
+                                        </td>
+                                        <td class="date-format">
+                                            [[${voucher.start_date}]]
+                                        </td>
+                                        <td class="date-format">
+                                            [[${voucher.end_date}]]
+                                        </td>
+                                        <td>
+                                            <ul>
+                                            <li>
+                                            <a th:onclick="voucherView([[${voucher.id}]], 1)" href="javascript:void(0)">
+                                                <span class="lnr lnr-tag"></span>
+                                                Chi tiết
+                                            </a>
+                                            </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Pagination Start -->
+                    <div class="pagination-box">
+                        <nav class="ms-auto me-auto " aria-label="...">
+                            <ul class="pagination pagination-primary">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Pagination End -->
+                </div>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-header-2">
+                            <h5>Đăng ký voucher mới</h5>
+                        </div>
+                        <div class="table-responsive table-desi">
+                            <table class="user-table coupon-list-table table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Mã</th>
+                                        <th>Tên</th>
+                                        <th>Giảm</th>
+                                        <th>Giá</th>
+                                        <th>Ngày bắt đầu</th>
+                                        <th>Ngày kết thúc</th>
+                                        <th>Options</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="coupons-js">
+                                    <!-- coupons-js -->
+                                    <tr th:each="voucher : ${content.objs.vouchersNotReg}">
+                                        <td class="date-count">
+                                            <span class="dkkm-span">[[${voucher.end_date}]]</span>
+                                        </td>
+                                        <td>
+                                            [[${voucher.voucher_code}]]
+                                        </td>
+                                        <td>
+                                            [[${voucher.voucher_name}]]
+                                        </td>
+                                        <td>
+                                        [[
+                                            'Giảm ' + 
+                                            ${#numbers.formatDecimal(voucher.discount_amount, 1, 'DEFAULT', 0, 'DEFAULT')} + 
+                                            ${voucher._fixed ? 'đ' : '%'}  
+                                        ]]
+                                        </td>
+                                        <td>
+                                            <span class="dkkm-span">[[${voucher.price == 0 ? 'Miễn phí' : #numbers.formatDecimal(voucher.price, 1, 'DEFAULT', 0, 'DEFAULT') + 'đ'}]]</span>
+                                        </td>
+                                        <td class="date-format">
+                                            [[${voucher.start_date}]]
+                                        </td>
+                                        <td class="date-format">
+                                            [[${voucher.end_date}]]
+                                        </td>
+                                        <td>
+                                            <ul>
+                                            <li>
+                                            <a th:onclick="voucherView([[${voucher.id}]])" href="javascript:void(0)">
+                                                <span class="lnr lnr-tag"></span>
+                                                Chi tiết
+                                            </a>
+                                            </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="seller__info voucher__info save-details-box" style="height: 600px;overflow: auto;min-width: 800px;">
+                                <div class="save-details" style="overflow: hidden;">
+                                    <div>
+                                        <h5>
+                                            <b class="voucher-name">VOUCHER3</b>
+                                        </h5>
+                                    </div>
+
+                                    <div class="save-position">
+                                        <h6 class="voucher-price">Miễn phí</h6>
+                                    </div>
+
+                                    <div class="box-step-2 mt-4" >
+                                        <div class="select-wrap">
+                                            <p>
+                                                <b>+Sản phẩm</b>
+                                            </p>
+                                            <div class="selected-items products">
+                                                <p th:if="${products == null}">
+                                                    Chưa có sản phẩm nào được áp dụng mã này
+                                                </p>
+                                            </div>
+                                            <input id="product_search" oninput="search(0)" style="margin-top: 10px;" class="form-control" type="text" placeholder="Tìm kiếm sản phẩm..">
+                                            <div class="select-product">
+                                                <div th:each="item : ${content.objs.products}" class="select-product-item product" th:data-id="${item.id}">
+                                                    [[${item.product_name}]]
+                                                </div>
+                                                <p th:if="${content.objs.products.size == 0}">
+                                                    Shop của bạn chưa có sản phẩm nào
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        <div class="select-wrap">
+                                            <p>
+                                                <b>+ Người dùng</b>
+                                            </p>
+                                            <div class="selected-items customers">
+                                                <p>Chọn khách hàng được áp dụng mã này</p>
+                                            </div>
+                                            <input id="customer_search" oninput="search(1)" style="margin-top: 10px;" class="form-control" type="text" placeholder="Tìm kiếm người dùng..">
+                                            <div class="select-product">
+                                                <div th:each="item : ${content.objs.customers}" class="select-product-item customer" th:data-id="${item.id}">
+                                                    [[${item.username}]]
+                                                </div>
+                                                <p th:if="${content.objs.customers.size == 0}">
+                                                    Không có dữ liệu.
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="button action-seller">
+                                            <a style="background-color: #94e998; color: #333537; font-weight: bold; font-size: 14px;" href="javascript:void(0)" class="btn btn-sm " onclick="saveCustomerApply()"> Lưu thay đổi</a>
+                                        </div>
+
+                                        <div class="button action-seller">
+                                            <a style="background-color: #94e99816; color: #333537; font-weight: bold; font-size: 14px;" href="javascript:void(0)" class="btn btn-sm " onclick="useVoucher(0)"><i class="fa fa-angle-left"></i> Xem lại voucher</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="box-step-1">
+                                        <div class="save-price mt-5">
+                                            <p><b>Số tiền / Phần trăm giảm</b>: <span class="voucher-disc-amount">500.000</span></p>
+                                        </div>
+
+                                        <div class="mobile">
+                                            <p class="mobile"><b>Mô tả</b>: <span class="description">Đón chào sinh nhật KShop</span></p>
+                                        </div>
+
+                                        <div class="code mt-2">
+                                            <p class="code"><b>Số lượng</b>: <span class="voucher-max-uses">100 mã</span></p>
+                                        </div>
+
+                                        <div class="code mt-3">
+                                            <p class="wrap-box-voucher">
+                                                Mỗi khách hàng có thể sử dụng mã này <b class="voucher-max-uses-user">01</b> lần
+                                            </p>
+                                        </div>
+
+                                        <div class="email mt-3">
+                                            <p class="wrap-box-voucher blue">
+                                                Giảm <b class="voucher-disc-amount">100.000</b> với đơn hàng từ <b class="voucher-min-pro">10.000.000</b> - giảm tối đa <b class="voucher-max-disa">180.000</b>    
+                                            </p>
+                                        </div>
+
+                                        <div class="email mt-3 mb-4">
+                                            <p class="wrap-box-voucher blue">
+                                                Giảm <b class="voucher-disc-amount">100.000</b>  dành cho sản phẩm - giảm tối đa <b class="voucher-max-disa">180.000</b>
+                                            </p>
+                                        </div>
+
+                                        <div class="button action-seller">
+                                            <a style="background-color: #94e998; color: #333537; font-weight: bold; font-size: 14px;" href="javascript:void(0)" class="btn btn-sm btn-box-voucher" onclick="useVoucher()" data-edit="0">Đăng ký mã này </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Pagination Start -->
+                    <div class="pagination-box">
+                        <nav class="ms-auto me-auto " aria-label="...">
+                            <ul class="pagination pagination-primary">
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                    <!-- Pagination End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Container-fluid Ends-->
+
+    <!-- footer start-->
+    <div class="container-fluid">
+        <footer class="footer">
+            <div class="row">
+                <div class="col-md-12 footer-copyright text-center">
+                    <p class="mb-0">Copyright 2021 © Voxo theme by pixelstrap</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>
+
+<p class="raw-voucher" th:data-id="${voucher.id}" th:each="voucher : ${content.objs.vouchers}">
+    [[${voucher.voucher_code}]]|[[${voucher.voucher_name}]]|[[${voucher.price == 0 ? 'Miễn phí' : #numbers.formatDecimal(voucher.price, 1, 'DEFAULT', 0, 'DEFAULT') + 'đ'}]]|[[${voucher.description}]]|[[${voucher._fixed ? #numbers.formatDecimal(voucher.discount_amount, 1, 'DEFAULT', 0, 'DEFAULT') : #numbers.formatDecimal(voucher.discount_amount, 1, 'DEFAULT', 0, 'DEFAULT') + '%'}]]|[[${voucher.uses}]]|[[${voucher.max_uses}]]|[[${voucher.max_uses_user}]]|[[${voucher.min_pro}]]|[[${voucher.max_disa}]]
+</p>

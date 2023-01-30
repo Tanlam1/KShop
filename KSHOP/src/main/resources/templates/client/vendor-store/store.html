@@ -1,0 +1,148 @@
+<!-- Start of Main -->
+<main class="main">
+    <!-- Start of Breadcrumb -->
+    <nav class="breadcrumb-nav">
+        <div class="container">
+            <ul class="breadcrumb bb-no">
+                <li><a href="./">Home</a></li>
+                <li>Store</li>
+            </ul>
+        </div>
+    </nav>
+    <!-- End of Breadcrumb -->
+
+    <!-- Start of Pgae Contetn -->
+    <div class="page-content mb-8">
+        <div class="container">
+            <div class="row gutter-lg">
+                <aside class="sidebar left-sidebar vendor-sidebar sticky-sidebar-wrapper sidebar-fixed">
+                    <!-- Start of Sidebar Overlay -->
+                    <div class="sidebar-overlay"></div>
+                    <a class="sidebar-close" href="#"><i class="close-icon"></i></a>
+                    <a href="#" class="sidebar-toggle"><i class="fas fa-chevron-right"></i></a>
+                    <div class="sidebar-content">
+                        <div class="sticky-sidebar">
+                            <div class="widget widget-collapsible widget-categories">
+                                <h3 class="widget-title"><span onclick="filterSelection(event,'all')" >Tất cả loại sản phẩm</span></h3>
+                                <ul class="widget-body filter-items search-ul" id="liContainer">
+                                    <li th:each="category : ${content.objs.categories}">
+                                        <!-- <a href="#" th:onclick="filterSelection('[[${category.id}]]')" th:text="${category.category_name}"></a> -->
+                                        <a href="#" class="select" th:onclick="filterSelection(event,'[[${category.id}]]')" th:text="${category.category_name}"></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End of Widget -->
+                        </div>
+                    </div>
+                </aside>
+                <!-- End of Sidebar -->
+                <input type="hidden" th:value="${content.objs.storeId}" id="storeId">
+                <div class="main-content">
+                    <div class="store store-banner mb-4 store-js">
+                        
+                    </div>
+                    <!-- End of Store Banner -->
+                    <!-- <input type="hidden" th:value="product.id" th:each="product : ${content.objs.products}"> -->
+                    <h2 class="title vendor-product-title mb-4"><a href="#">Sản phẩm</a></h2>
+                    <div class="product-wrapper row cols-md-3 cols-sm-2 cols-2 product-js" id="example1">
+                        <div th:class="${'product-wrap ' + product.categories.id}" th:each="product : ${content.objs.products}">
+                            <div class="product text-center">
+                                <figure class="product-media">
+                                    <a th:href="${'/product/' + product.product_code + '-' + product.id}">
+                                        <img th:src="${#strings.replace('/' + product.image,'/https:', '')}" alt="Product" width="300" height="338">
+                                    </a>
+                                    <div class="product-action-vertical">
+                                        <a href="#" class="btn-product-icon btn-cart w-icon-cart" title="Add to cart"></a>
+                                        <a href="#" class="btn-product-icon btn-wishlist w-icon-heart" title="Wishlist"></a>
+                                        <a href="#" class="btn-product-icon btn-compare w-icon-compare" title="Compare"></a>
+                                        <a href="#" class="btn-product-icon btn-quickview w-icon-search" title="Quick View"></a>
+                                    </div>
+                                </figure>
+                                <div class="product-details">
+                                    <h3 class="product-name">
+                                        <a th:href="${'/product/' + product.product_code + '-' + product.id}">[[${product.product_name}]]</a>
+                                    </h3>
+                                    <div class="ratings-container">
+                                        <div class="ratings-full">
+                                            <span class="ratings" th:style="${'width: '+ (content.objs.reviews[productStat.index].rating * 20) +'%;'}"></span>
+                                            <span class="tooltiptext tooltip-top"></span>
+                                        </div>
+                                        <a th:href="${'/product/' + product.product_code + '-' + product.id}" class="rating-reviews">([[${content.objs.reviews[productStat.index].review_count}]] reviews)</a>
+                                    </div>
+                                    <div class="product-pa-wrapper">
+                                        <div class="product-price">
+                                            [[${product.standard_cost}]]
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- End of Main Content -->
+            </div>
+        </div>
+    </div>
+    <!-- End of Page Content -->
+</main>
+<!-- End of Main -->
+<script>
+filterSelection(0,"all")
+function filterSelection(event,c) {
+    if(event != 0){
+        event.preventDefault()
+    }
+    var x, i;
+    x = document.getElementsByClassName("product-wrap");
+    if (c == "all") c = "";
+    for (i = 0; i < x.length; i++) {
+        RemoveClass(x[i], "show");
+        if (x[i].className.indexOf(c) > -1) AddClass(x[i], "show");
+    }
+}
+
+function AddClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+    }
+}
+
+function RemoveClass(element, name) {
+    var i, arr1, arr2;
+    arr1 = element.className.split(" ");
+    arr2 = name.split(" ");
+    for (i = 0; i < arr2.length; i++) {
+        while (arr1.indexOf(arr2[i]) > -1) {
+        arr1.splice(arr1.indexOf(arr2[i]), 1);     
+        }
+  }
+    element.className = arr1.join(" ");
+}
+
+// Add active class to the current control button (highlight it)
+// var liContainer = document.getElementById("liContainer");
+// var selects = liContainer.getElementsByClassName("select");
+//     for (var i = 0; i < btns.length; i++) {
+//         selects[i].addEventListener("click", function() {
+//         var current = document.getElementsByClassName("active");
+//         current[0].className = current[0].className.replace(" active", "");
+//         this.className += " active";
+//     });
+// }
+
+</script>
+<style>
+.show {
+    display: block !important;
+}
+.product-wrap{
+    display: none;
+}
+.product-wrapper {
+  overflow: hidden;
+}
+</style>

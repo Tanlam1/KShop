@@ -1,0 +1,11 @@
+Ý tưởng trang web:
+- Có 8 trang web:
+	+ Trang chủ (Public): bao gồm các chức năng hiển thị(Sản phẩm, thông tin, doanh mục sản phẩm, trang chi tiết của shop(shop),...), tìm kiếm, thanh toán(cần login), login, đăng kí, quên mật khẩu, giỏ hàng, 
+			thông tin chung của trang thương mại này(SDT hổ trợ, địa chỉ trụ sở,...)
+	+ Trang dành cho người bán (shop) (Phân quyền nếu TK đã tạo 1 trang bán hàng, và ngược lại) (Cần login): Người bán có thể thêm, xóa, sửa các sp của mình, nhận và chuẩn bị đơn hàng từ người mua, quản lí thông tin,
+	+ Trang User: Quản lí tài khoản, xem chi tiết giỏ hàng theo session của mỗi tk, mục chuyển từ người dùng sang trang người bán, kiểm tra(lịch sử mua, trạng thái đơn), hủy đơn
+	+ Trang admin: Quản lí user(bao gồm user, và trang người bán), duyệt các sản phẩm và các shop, thông kê(số liệu, doanh số,...) có thể in ra file excel, quản lí doanh mục,
+	+ Trang giỏ hàng: hiển thị sản phẩm đã thêm, nếu mà làm dc cái session của từng tk thì quá ngon
+	+ Trang thanh toán (cần login): Hiển thị sản phẩm sắp đặt hàng, hiển thị tổng phí
+	+ Trang chi tiết sản phẩm: thêm giỏ hàng, mua, feedback(sao, bình luận,...)
+	+ Trang chi tiết của shop (Public): Hiển thị SP của shop đó, tổng số lượng(đánh giá, mua,...)  
